@@ -1,8 +1,8 @@
 package com.example.detaithuctap.Controller.MonAnController;
 
 import com.example.detaithuctap.Entity.MonAn.DiaDiemAnUong;
-import com.example.detaithuctap.Repository.DiaDiemAnUongRepository;
-import com.example.detaithuctap.Repository.MonAn_DiaDiemAnUongRepository;
+import com.example.detaithuctap.Repository.MonAnRepository.DiaDiemAnUongRepository;
+import com.example.detaithuctap.Repository.MonAnRepository.MonAn_DiaDiemAnUongRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;

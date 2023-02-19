@@ -15,16 +15,18 @@ import javax.persistence.*;
 @Table(name = "tg_monan_diadiemanuong")
 public class MonAn_DiaDiemAnUong {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private Long id;
-    
-    @Column(name = "id_mon_an")
-    private Long idMonAn;
+    @EmbeddedId
+    private MonAn_DiaDiemAnUongKey id;
 
+    @ManyToOne
+    @MapsId("monanId")
+    @Column(name = "id_mon_an")
+    private int idMonAn;
+
+    @ManyToOne
+    @MapsId("diadiemId")
     @Column(name = "id_dia_diem")
-    private Long idDiaDiem;
+    private int idDiaDiem;
 
     @Column(name = "dongia")
     private Double dongia;

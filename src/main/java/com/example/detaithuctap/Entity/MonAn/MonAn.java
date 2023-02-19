@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Data
 @AllArgsConstructor
@@ -23,4 +24,9 @@ public class MonAn {
 
     @Column(name = "motachung")
     private String motachung;
+
+    @ManyToMany
+    @JoinTable(name = "tg_monan_diadiemanuong", joinColumns = @JoinColumn(name = "id_mon_an"),
+        inverseJoinColumns = @JoinColumn(name = "id_dia_diem"))
+    private Set<DiaDiemAnUong> diaDiemAnUongs;
 }

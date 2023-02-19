@@ -1,11 +1,13 @@
 package com.example.detaithuctap.Entity.MonAn;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.sql.Time;
+import java.util.Set;
 
 @Data
 @AllArgsConstructor
@@ -33,5 +35,9 @@ public class DiaDiemAnUong {
 
     @Column(name = "motadiadiem")
     private String motadiadiem;
+
+    @ManyToMany(mappedBy = "diaDiemAnUongs")
+    @JsonIgnore
+    private Set<MonAn> monAns;
 
 }

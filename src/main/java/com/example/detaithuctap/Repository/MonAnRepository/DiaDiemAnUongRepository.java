@@ -1,4 +1,4 @@
-package com.example.detaithuctap.Repository;
+package com.example.detaithuctap.Repository.MonAnRepository;
 
 import com.example.detaithuctap.Entity.MonAn.DiaDiemAnUong;
 import org.springframework.data.jpa.repository.JpaRepository;
