@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -17,7 +18,7 @@ public class MonAn {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Long id;
+    private int id;
 
     @Column(name = "tenmonan")
     private String tenmonan;
@@ -26,7 +27,7 @@ public class MonAn {
     private String motachung;
 
     @ManyToMany
-    @JoinTable(name = "tg_monan_diadiemanuong", joinColumns = @JoinColumn(name = "id_mon_an"),
-        inverseJoinColumns = @JoinColumn(name = "id_dia_diem"))
-    private Set<DiaDiemAnUong> diaDiemAnUongs;
+    @JoinTable(name = "monan_diadiemanuong", joinColumns = @JoinColumn(name = "id_mon_an", referencedColumnName = "id"),
+        inverseJoinColumns = @JoinColumn(name = "id_dia_diem", referencedColumnName = "id"))
+    private List<DiaDiemAnUong> diaDiemAnUongs;
 }

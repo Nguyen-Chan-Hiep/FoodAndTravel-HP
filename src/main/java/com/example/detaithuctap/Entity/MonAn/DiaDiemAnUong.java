@@ -1,5 +1,6 @@
 package com.example.detaithuctap.Entity.MonAn;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,6 +8,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.sql.Time;
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -37,7 +39,7 @@ public class DiaDiemAnUong {
     private String motadiadiem;
 
     @ManyToMany(mappedBy = "diaDiemAnUongs")
-    @JsonIgnore
-    private Set<MonAn> monAns;
+    @JsonBackReference
+    private List<MonAn> monAns;
 
 }
