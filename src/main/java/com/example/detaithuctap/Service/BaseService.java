@@ -13,7 +13,7 @@ public interface BaseService<T> {
     public void save(T t);
 
     @Modifying
-    @Query(value="update  ", nativeQuery = true)
+    @Query(value="update :tb_name where id = :id set  ", nativeQuery = true)
     public void update(int id);
     public void dalete(int id);
     public T getById(int id);

@@ -16,7 +16,6 @@ import java.util.List;
 @RestController
 @CrossOrigin(origins = "*")
 public class MonAnController {
-
     @Autowired
     private MonAnRepository monAnRepository;
 
