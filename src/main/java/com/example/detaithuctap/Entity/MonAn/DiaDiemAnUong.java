@@ -38,8 +38,9 @@ public class DiaDiemAnUong {
     @Column(name = "motadiadiem")
     private String motadiadiem;
 
-    @ManyToMany(mappedBy = "diaDiemAnUongs")
-    @JsonBackReference
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "monan_diadiemanuong", joinColumns = @JoinColumn(name = "id_dia_diem", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "id_mon_an", referencedColumnName = "id"))
     private List<MonAn> monAns;
 
 }

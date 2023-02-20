@@ -1,5 +1,6 @@
 package com.example.detaithuctap.Entity.MonAn;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -26,8 +27,6 @@ public class MonAn {
     @Column(name = "motachung")
     private String motachung;
 
-    @ManyToMany
-    @JoinTable(name = "monan_diadiemanuong", joinColumns = @JoinColumn(name = "id_mon_an", referencedColumnName = "id"),
-        inverseJoinColumns = @JoinColumn(name = "id_dia_diem", referencedColumnName = "id"))
+    @ManyToMany(mappedBy = "monAns", targetEntity = DiaDiemAnUong.class, fetch = FetchType.EAGER)
     private List<DiaDiemAnUong> diaDiemAnUongs;
 }
