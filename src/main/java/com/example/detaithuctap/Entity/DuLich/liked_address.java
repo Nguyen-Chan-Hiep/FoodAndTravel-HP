@@ -5,24 +5,24 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "loai_hinh_du_lich")
-public class loaiHinh {
+@Table(name = "liked_diadiem")
+public class liked_address {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
-    @Column(name = "ten_loai_hinh")
-    private String tenLoaiHinh;
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "loaiHinh")
-    private List<address> listAddress;
+    @Column(name = "id_user")
+    private int idUser;
+    @Column(name = "id_dia_diem")
+    private int idAddress;
 
-    public loaiHinh(String tenLoaiHinh) {
-        this.tenLoaiHinh = tenLoaiHinh;
+    public liked_address(int idUser, int idAddress) {
+        this.idUser = idUser;
+        this.idAddress = idAddress;
     }
 }
