@@ -8,6 +8,8 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.sql.Time;
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
@@ -30,17 +32,20 @@ public class DiaDiemAnUong {
     private String diachi;
 
     @Column(name = "giomocua")
-    private Time giomocua;
+    private String giomocua;
 
     @Column(name = "giodongcua")
-    private Time giodongcua;
-
-    @Column(name = "motadiadiem")
-    private String motadiadiem;
-
+    private String giodongcua;
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "monan_diadiemanuong", joinColumns = @JoinColumn(name = "id_dia_diem", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "id_mon_an", referencedColumnName = "id"))
+    @JsonIgnore
     private List<MonAn> monAns;
 
+    public DiaDiemAnUong (String tendiadiem, String diachi, String giomocua, String giodongcua) {
+        this.tendiadiem = tendiadiem;
+        this.diachi = diachi;
+        this.giomocua = giomocua;
+        this.giodongcua = giodongcua;
+    }
 }
