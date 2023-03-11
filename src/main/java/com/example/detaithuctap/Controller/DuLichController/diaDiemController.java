@@ -2,14 +2,12 @@ package com.example.detaithuctap.Controller.DuLichController;
 
 import com.example.detaithuctap.Entity.DuLich.address;
 import com.example.detaithuctap.Entity.DuLich.loaiHinh;
-import com.example.detaithuctap.Repository.DuLichRepository.loaiHinhReponsitory;
 import com.example.detaithuctap.Service.DuLichService.diaDiemService;
 import com.example.detaithuctap.Service.DuLichService.loaiHinhService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RequestMapping("/du-lich/dia-diem")
 @RestController()

@@ -1,11 +1,10 @@
 package com.example.detaithuctap.Service.DuLichService.diaDiemServiceImpl;
 
 import com.example.detaithuctap.Entity.DuLich.address;
-import com.example.detaithuctap.Repository.DuLichRepository.diaDIemReponsitory;
+import com.example.detaithuctap.Repository.DuLichRepository.AddressReponsImpl;
 import com.example.detaithuctap.Service.DuLichService.diaDiemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import sun.text.normalizer.UTF16;
 
 import javax.transaction.Transactional;
 import java.util.List;
@@ -13,12 +12,12 @@ import java.util.List;
 @Transactional
 public class diaDiemServiceImpl implements diaDiemService {
     @Autowired
-    private diaDIemReponsitory respon;
+    private AddressReponsImpl respon;
 
     @Override
     public List<address> getAll() {
         try{
-            return respon.findAll();
+            return respon.getAll();
         }
         catch (Exception e){
             return null;
@@ -28,7 +27,7 @@ public class diaDiemServiceImpl implements diaDiemService {
     @Override
     public address getById(int id) {
         try{
-            return respon.findById(id).get();
+            return respon.getById(id);
         }
         catch (Exception e){
             return null;
@@ -42,12 +41,12 @@ public class diaDiemServiceImpl implements diaDiemService {
 
     @Override
     public void saveorupdate(address dd) {
-        respon.save(dd);
+        respon.saveOrUpdate(dd);
     }
 
     @Override
     public void delAddress(address address1) {
-        respon.delete(address1);
+        respon.delObject(address1);
     }
 
     @Override
@@ -57,7 +56,7 @@ public class diaDiemServiceImpl implements diaDiemService {
 
     @Override
     public void delById(int id) {
-        respon.deleteById(id);
+        respon.delete(id);
     }
 
     @Override

@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface commentService {
     public List<commentaAddress> loadByIdAddress(int inAddress);
-    public commentaAddress saveComment(commentaAddress commentaAddress);
+    public void saveComment(commentaAddress commentaAddress);
     public void updateComment(commentaAddress commentaAddress);
     public void delComment(int id);
 }
