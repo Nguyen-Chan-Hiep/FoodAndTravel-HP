@@ -1,9 +1,5 @@
 //package com.example.detaithuctap.config;
 //
-<<<<<<< HEAD
-=======
-//import com.example.detaithuctap.auth.MyDBAuthenticationService;
->>>>>>> 1d83aba7ed20d295de64ea51b4ec6553e1cc6e5e
 //import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.context.annotation.Bean;
 //import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -11,17 +7,13 @@
 //import org.springframework.security.config.annotation.web.builders.WebSecurity;
 //import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 //import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-<<<<<<< HEAD
-//import org.springframework.security.core.userdetails.UserDetailsService;
-//import org.springframework.security.crypto.password.NoOpPasswordEncoder;
-//import org.springframework.security.crypto.password.PasswordEncoder;
-=======
+//
 //import org.springframework.security.core.userdetails.User;
 //import org.springframework.security.core.userdetails.UserDetailsService;
 //import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 //import org.springframework.security.crypto.password.PasswordEncoder;
 //import org.springframework.security.provisioning.InMemoryUserDetailsManager;
->>>>>>> 1d83aba7ed20d295de64ea51b4ec6553e1cc6e5e
+//
 //
 //@EnableWebSecurity
 //public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
