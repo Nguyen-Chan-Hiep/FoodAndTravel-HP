@@ -32,4 +32,50 @@ public class monan_diadiemanuong {
         this.dongia = dongia;
         this.chitietmonan = chitietmonan;
     }
+
+	public monan_diadiemanuong() {
+		super();
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public int getId_mon_an() {
+		return id_mon_an;
+	}
+
+	public void setId_mon_an(int id_mon_an) {
+		this.id_mon_an = id_mon_an;
+	}
+
+	public int getId_dia_diem() {
+		return id_dia_diem;
+	}
+
+	public void setId_dia_diem(int id_dia_diem) {
+		this.id_dia_diem = id_dia_diem;
+	}
+
+	public Double getDongia() {
+		return dongia;
+	}
+
+	public void setDongia(Double dongia) {
+		this.dongia = dongia;
+	}
+
+	public String getChitietmonan() {
+		return chitietmonan;
+	}
+
+	public void setChitietmonan(String chitietmonan) {
+		this.chitietmonan = chitietmonan;
+	}
+    
+    
 }

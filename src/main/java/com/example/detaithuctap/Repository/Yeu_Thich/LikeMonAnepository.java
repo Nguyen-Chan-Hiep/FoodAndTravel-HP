@@ -2,7 +2,7 @@ package com.example.detaithuctap.Repository.Yeu_Thich;
 
 import com.example.detaithuctap.Entity.MonAn.MonAn;
 import com.example.detaithuctap.Entity.User.NguoiDung;
-import com.example.detaithuctap.Entity.Yeu_Thich.MonAn.LikeMonAn;
+import com.example.detaithuctap.Entity.MonAn.LikeMonAn;
 import com.example.detaithuctap.Repository.BaseRepository;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;

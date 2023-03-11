@@ -2,10 +2,10 @@ package com.example.detaithuctap.Service.MonAn;
 
 import com.example.detaithuctap.Entity.MonAn.Loai_hinh_am_thuc;
 import com.example.detaithuctap.Entity.MonAn.MonAn;
+import com.example.detaithuctap.Entity.MonAn.monan_diadiemanuong;
 import com.example.detaithuctap.Repository.MonAn.MonAnRepository;
 import com.example.detaithuctap.Service.BaseService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -49,6 +49,10 @@ public class MonAnService implements BaseService<MonAn> {
 
     public List<MonAn> getListMonAnByIdLoaiHinh(Loai_hinh_am_thuc id_loai_hinh){
         return monAnRepository.getListMonAnByIdLoaiHinh (id_loai_hinh);
+    }
+    
+    public monan_diadiemanuong getMonan_diadiemanuong(int idmonan, int iddiadiem) {
+    	return monAnRepository.getMonan_diadiemanuong(idmonan, iddiadiem);
     }
 
 }

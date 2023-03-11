@@ -39,4 +39,12 @@ public class DiaDiemAnUongService implements BaseService<DiaDiemAnUong> {
     public DiaDiemAnUong getByName (String name) {
         return null;
     }
+
+    public List<DiaDiemAnUong> getListDiaDiemByIdMonAn(int id){
+        return diaDiemAnUongRepository.getListDiaDiemByIdMonAn (id);
+    }
+    
+    public List<DiaDiemAnUong> listDiaDiemAnUongKhac(int id){
+    	return diaDiemAnUongRepository.listDiaDiemAnUongKhac(id);
+    }
 }

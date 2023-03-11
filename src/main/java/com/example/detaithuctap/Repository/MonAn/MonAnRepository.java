@@ -10,6 +10,8 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+import javax.persistence.Id;
+
 @Repository
 public class MonAnRepository implements BaseRepository<MonAn> {
 
@@ -57,6 +59,15 @@ public class MonAnRepository implements BaseRepository<MonAn> {
             return null;
         }
 
+    }
+    
+    public monan_diadiemanuong getMonan_diadiemanuong(int idmonan, int iddiadiem) {
+    	try {
+			return (monan_diadiemanuong) sessionFactory.getCurrentSession().createQuery("from monan_diadiemanuong where id_mon_an=:id_mon_an and id_dia_diem=:id_dia_diem")
+					.setParameter("id_mon_an", idmonan).setParameter("id_dia_diem", iddiadiem).getSingleResult();
+		} catch (Exception e) {
+			return null;
+		}
     }
 
 }

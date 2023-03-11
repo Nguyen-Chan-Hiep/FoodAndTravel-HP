@@ -12,10 +12,16 @@ public class DiaDiemAnUongRepository implements BaseRepository<DiaDiemAnUong> {
 
     @Autowired
     private SessionFactory sessionFactory;
-    @Override
+    @SuppressWarnings("unchecked")
+	@Override
     public List<DiaDiemAnUong> getAll () {
         return sessionFactory.getCurrentSession ().createQuery ("from DiaDiemAnUong")
                 .list ();
+    }
+
+    public List<DiaDiemAnUong> getListDiaDiemByIdMonAn(int idd){
+        return sessionFactory.getCurrentSession ().createNativeQuery ("select d.* from dia_diem_an_uong d join monan_diadiemanuong m on d.id_dia_diem = m.id_dia_diem\n" +
+                "where m.id_mon_an = :idd limit 3 offset 0", DiaDiemAnUong.class).setParameter ("idd", idd).list ();
     }
 
     @Override
@@ -37,6 +43,16 @@ public class DiaDiemAnUongRepository implements BaseRepository<DiaDiemAnUong> {
     @Override
     public DiaDiemAnUong getByName (String name) {
         return null;
+    }
+    
+    @SuppressWarnings("unchecked")
+	public List<DiaDiemAnUong> listDiaDiemAnUongKhac(int id){
+    	try {
+			return (List<DiaDiemAnUong>) sessionFactory.getCurrentSession().createQuery("from DiaDiemAnUong where id != :id")
+					.setParameter("id", id).list();
+		} catch (Exception e) {
+			return null;
+		}
     }
 
 }

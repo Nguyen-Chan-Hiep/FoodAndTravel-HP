@@ -42,8 +42,7 @@ public class NguoiDungRepository implements BaseRepository<NguoiDung> {
 
     @Override
     public NguoiDung getByName (String name) {
-        return (NguoiDung) sessionFactory.getCurrentSession ().createQuery ("from NguoiDung where username" +
-                        " = :username").setParameter ("username", name)
+        return (NguoiDung) sessionFactory.getCurrentSession ().createQuery ("from NguoiDung where username = :username").setParameter ("username", name)
                 .getSingleResult ();
     }
 

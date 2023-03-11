@@ -1,7 +1,5 @@
 package com.example.detaithuctap.Service;
 
-import com.example.detaithuctap.Entity.MonAn.MonAn;
-
 import java.util.List;
 
 public interface BaseService<T> {

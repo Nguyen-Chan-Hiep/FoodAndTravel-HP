@@ -2,14 +2,13 @@ package com.example.detaithuctap.API.YeuThich;
 
 import com.example.detaithuctap.Entity.MonAn.MonAn;
 import com.example.detaithuctap.Entity.User.NguoiDung;
-import com.example.detaithuctap.Entity.Yeu_Thich.MonAn.LikeMonAn;
+import com.example.detaithuctap.Entity.MonAn.LikeMonAn;
 import com.example.detaithuctap.Service.MonAn.MonAnService;
 import com.example.detaithuctap.Service.NguoiDung.NguoiDungService;
 import com.example.detaithuctap.Service.Yeu_Thich.LikeMonAnService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController

@@ -15,6 +15,7 @@ public class Loai_hinh_am_thucService implements BaseService<Loai_hinh_am_thuc> 
 
     @Autowired
     private Loai_hinh_am_thucRepository loai_hinh_am_thucRepository;
+    
     @Override
     public List<Loai_hinh_am_thuc> getAll () {
         return loai_hinh_am_thucRepository.getAll ();

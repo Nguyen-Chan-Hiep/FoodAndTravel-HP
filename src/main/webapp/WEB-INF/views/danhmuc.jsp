@@ -12,28 +12,14 @@
     <div class="col-lg-3 col-md-6 col-sm-8 order-2 order-lg-1">
         <nav class="sidebar">
             <div class="text">DANH MỤC</div>
-            <ul id='danhmuc'>
-
+            <ul>
+				<c:forEach var="p" items="${listL }">
+					<li id='${ p.id}'>
+	                    <a onclick="loaihinh(${p.id})" class="feat-btn">${p.ten_loai_hinh}</a>
+	                </li>
+				</c:forEach>
             </ul>
         </nav>
     </div>
 </body>
-<script>
-fetch("http://localhost:8080/loai-hinh-am-thuc")
-    .then(function (res) {
-        return res.json();
-    })
-    .then(function (ress) {
-        var html = "";
-        for (p of ress) {
-            html += `<li id=`+p.id+`>
-                    <a onclick="loaihinh(`+p.id+`)" class="feat-btn">`+ p.ten_loai_hinh + `</a>
-                </li>`;
-        }
-        document.getElementById("danhmuc").innerHTML = html;
-    })
-    .catch(function (err) {
-        alert("co loi!!!");
-    });
-</script>
 </html>

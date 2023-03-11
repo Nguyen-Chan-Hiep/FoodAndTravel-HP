@@ -40,6 +40,103 @@ public class BaiViet {
     private int idnguoidung;
     @Column(name = "thoigianpost")
     private String thoigianpost;
+	public BaiViet(String name, String tendiadiem, String diachi, String hinhanh, String motadiadiem, String loaihinh,
+			String sdt, Double gia, String giomocua, String giodongcua, int idnguoidung, String thoigianpost) {
+		super();
+		this.name = name;
+		this.tendiadiem = tendiadiem;
+		this.diachi = diachi;
+		this.hinhanh = hinhanh;
+		this.motadiadiem = motadiadiem;
+		this.loaihinh = loaihinh;
+		this.sdt = sdt;
+		this.gia = gia;
+		this.giomocua = giomocua;
+		this.giodongcua = giodongcua;
+		this.idnguoidung = idnguoidung;
+		this.thoigianpost = thoigianpost;
+	}
+	public BaiViet() {
+		super();
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getTendiadiem() {
+		return tendiadiem;
+	}
+	public void setTendiadiem(String tendiadiem) {
+		this.tendiadiem = tendiadiem;
+	}
+	public String getDiachi() {
+		return diachi;
+	}
+	public void setDiachi(String diachi) {
+		this.diachi = diachi;
+	}
+	public String getHinhanh() {
+		return hinhanh;
+	}
+	public void setHinhanh(String hinhanh) {
+		this.hinhanh = hinhanh;
+	}
+	public String getMotadiadiem() {
+		return motadiadiem;
+	}
+	public void setMotadiadiem(String motadiadiem) {
+		this.motadiadiem = motadiadiem;
+	}
+	public String getLoaihinh() {
+		return loaihinh;
+	}
+	public void setLoaihinh(String loaihinh) {
+		this.loaihinh = loaihinh;
+	}
+	public String getSdt() {
+		return sdt;
+	}
+	public void setSdt(String sdt) {
+		this.sdt = sdt;
+	}
+	public Double getGia() {
+		return gia;
+	}
+	public void setGia(Double gia) {
+		this.gia = gia;
+	}
+	public String getGiomocua() {
+		return giomocua;
+	}
+	public void setGiomocua(String giomocua) {
+		this.giomocua = giomocua;
+	}
+	public String getGiodongcua() {
+		return giodongcua;
+	}
+	public void setGiodongcua(String giodongcua) {
+		this.giodongcua = giodongcua;
+	}
+	public int getIdnguoidung() {
+		return idnguoidung;
+	}
+	public void setIdnguoidung(int idnguoidung) {
+		this.idnguoidung = idnguoidung;
+	}
+	public String getThoigianpost() {
+		return thoigianpost;
+	}
+	public void setThoigianpost(String thoigianpost) {
+		this.thoigianpost = thoigianpost;
+	}
 
 
 }

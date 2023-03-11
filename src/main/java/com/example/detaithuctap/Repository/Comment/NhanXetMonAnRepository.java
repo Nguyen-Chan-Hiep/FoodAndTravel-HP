@@ -1,6 +1,6 @@
 package com.example.detaithuctap.Repository.Comment;
 
-import com.example.detaithuctap.Entity.Comment.MonAn.NhanXetMonAn;
+import com.example.detaithuctap.Entity.MonAn.NhanXetMonAn;
 import com.example.detaithuctap.Entity.MonAn.MonAn;
 import com.example.detaithuctap.Entity.User.NguoiDung;
 import com.example.detaithuctap.Service.BaseService;
