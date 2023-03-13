@@ -13,4 +13,5 @@ public interface diaDiemService {
     public address getOne(String tenloaihinh, String tenDiaDiem, String diachi, String trangthai, String hinhanh);
     public void delById(int id);
     public List<address> searchAddress(String search);
+    public List<address> findByLHId(int lhId);
 }

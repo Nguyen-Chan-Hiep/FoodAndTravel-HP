@@ -13,7 +13,7 @@ public class LoaiHinhReponImpl implements BaseRepository<loaiHinh> {
     private SessionFactory sessionFactory;
     @Override
     public List<loaiHinh> getAll() {
-        List<loaiHinh> list = sessionFactory.getCurrentSession().createNativeQuery("select * form loai_hinh_du_lich", loaiHinh.class).list();
+        List<loaiHinh> list = sessionFactory.getCurrentSession().createNativeQuery("select * from loai_hinh_du_lich", loaiHinh.class).list();
         return list;
     }
 

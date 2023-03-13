@@ -15,7 +15,7 @@ public class AddressReponsImpl implements BaseRepository<address> {
     private SessionFactory sessionFactory;
     @Override
     public List<address> getAll() {
-        List<address> list = sessionFactory.getCurrentSession().createQuery("from address").list();
+        List<address> list = sessionFactory.getCurrentSession().createNativeQuery("select * from address_travel", address.class).list();
         return list;
     }
 
@@ -35,21 +35,21 @@ public class AddressReponsImpl implements BaseRepository<address> {
     }
     @Override
     public address getById(int id) {
-        address address = sessionFactory.getCurrentSession().createNativeQuery("select * from dia_diem_du_lich where id = :id", com.example.detaithuctap.Entity.DuLich.address.class).setParameter("id", id).getSingleResult();
+        address address = sessionFactory.getCurrentSession().createNativeQuery("select * from address_travel where id = :id", com.example.detaithuctap.Entity.DuLich.address.class).setParameter("id", id).getSingleResult();
 
         return address;
     }
 
     public List<address> getListAddress(String name){
         List<address> addresses = sessionFactory.getCurrentSession().createNativeQuery("select dd.id, dd.id_loai_hinh_du_lich, dd.ten_dia_diem, dd.diachi, dd.trangthai, dd.hinhanh, dd.sl_like " +
-                "from dia_diem_du_lich dd join loai_hinh_du_lich lh on dd.id_loai_hinh_du_lich = lh.id " +
+                "from address_travel dd join loai_hinh_du_lich lh on dd.id_loai_hinh_du_lich = lh.id " +
                 "where lh.ten_loai_hinh = :name", address.class).setParameter("name", name).list();
         return addresses;
     }
 
     public address getOne(String tenloaihinh, String tenDiaDiem, String diachi, String trangthai, String hinhanh){
         address address = sessionFactory.getCurrentSession().createNativeQuery("select dd.id, dd.id_loai_hinh_du_lich, dd.ten_dia_diem, dd.diachi, dd.trangthai, dd.hinhanh, dd,sl_like " +
-                "from dia_diem_du_lich dd join loai_hinh_du_lich lh on dd.id_loai_hinh_du_lich = lh.id " +
+                "from address_travel dd join loai_hinh_du_lich lh on dd.id_loai_hinh_du_lich = lh.id " +
                         "where lh.ten_loai_hinh = :tenloaihinh and dd.ten_dia_diem = :tenDiaDiem and dd.diachi =:diachi "+
                         "and dd.trangthai = :trangthai and dd.hinhanh = :hinhanh", com.example.detaithuctap.Entity.DuLich.address.class).setParameter("tenloaihinh", tenloaihinh).
                 setParameter("tenDiaDiem", tenDiaDiem).setParameter("diachi", diachi).setParameter("trangthai", trangthai).
@@ -58,12 +58,17 @@ public class AddressReponsImpl implements BaseRepository<address> {
     }
 
     public List<address> search(@Param("search")String search){
-        List<address> listAdd = sessionFactory.getCurrentSession().createNativeQuery("select * from dia_diem_du_lich where ten_dia_diem like :search", address.class).
+        List<address> listAdd = sessionFactory.getCurrentSession().createNativeQuery("select * from address_travel where ten_dia_diem like :search", address.class).
                 setParameter("search", search).list();
         return listAdd;
     }
     @Override
     public address getByName(String name) {
         return null;
+    }
+
+    public List<address> getByLHId(int id_lh){
+        List<address> list = sessionFactory.getCurrentSession().createNativeQuery("select * from address_travel where id_loai_hinh_du_lich = :id_lh", address.class).setParameter("id_lh", id_lh).list();
+        return list;
     }
 }

@@ -16,12 +16,7 @@ public class diaDiemServiceImpl implements diaDiemService {
 
     @Override
     public List<address> getAll() {
-        try{
-            return respon.getAll();
-        }
-        catch (Exception e){
-            return null;
-        }
+        return respon.getAll();
     }
 
     @Override
@@ -66,5 +61,10 @@ public class diaDiemServiceImpl implements diaDiemService {
         System.out.print(search);
         List<address> list = respon.search(search);
         return list;
+    }
+
+    @Override
+    public List<address> findByLHId(int lhId) {
+        return respon.getByLHId(lhId);
     }
 }

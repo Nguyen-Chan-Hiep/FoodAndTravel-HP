@@ -7,15 +7,6 @@
 :root {
 	--primary-color: #e7ab3c;
 }
-.test:hover {
-	transform: scale(1.1);
-	opacity: 0.8;
-}
-
-.test{
-	transition: transform .2s;
-}
-
 *{
     font-family: 'Poppins', sans-serif;
     margin: 0;
@@ -1227,6 +1218,7 @@ section{
 
 .customer-review-option .comment-option .co-item .avatar-text .at-rating {
 	line-height: 9px;
+
 }
 
 .customer-review-option .comment-option .co-item .avatar-text .at-rating i {
@@ -1234,6 +1226,7 @@ section{
 	display: inline-block;
 	color: #FAC451;
 	margin-right: -3px;
+	font-size: 1.8rem;
 }
 
 .customer-review-option .comment-option .co-item .avatar-text h5 {
@@ -1241,6 +1234,7 @@ section{
 	font-weight: 700;
 	margin-top: 10px;
 	margin-bottom: 10px;
+	font-size: 2rem;
 }
 
 .customer-review-option .comment-option .co-item .avatar-text h5 span {
@@ -1251,6 +1245,7 @@ section{
 	letter-spacing: 2px;
 	margin-left: 22px;
 	position: relative;
+
 }
 
 .customer-review-option .comment-option .co-item .avatar-text h5 span:before {
@@ -1263,7 +1258,7 @@ section{
 }
 
 .customer-review-option .comment-option .co-item .avatar-text .at-reply {
-	font-size: 14px;
+	font-size: 1.8rem;
 	color: #636363;
 }
 
@@ -1737,18 +1732,7 @@ section{
 }
 
 .package-item .travel-price .travel-button a{
-	background: var(--primary-color);
 	font-size: 1.6rem;
-	border: #ffffff;
-	font-weight: 100;
-}
-
-.package-item .travel-price .travel-button a:hover{
-	opacity: 0.7;
-}
-
-.package-item .travel-price .travel-button a:first-child{
-	border-right: 1px solid #ffffff;
 }
 
 .package-item img {
@@ -1771,24 +1755,18 @@ section{
 }
 
 /*** Booking ***/
-.booking {
-    background: linear-gradient(rgba(15, 23, 43, .7), rgba(15, 23, 43, .7)), url(../img/booking.jpg);
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-	margin-bottom: 20px;
-}
 
 .booking .heading-title{
 	text-align: center;
 	font-family: "Nunito",sans-serif;
     font-weight: 800;
     line-height: 1.2;
-	color: #fff;
+	color: #111111;
 }
 
 .booking .book-form{
 	padding: 2rem;
+	background: #eee;
 }
 
 .booking .book-form .flex{
@@ -1804,34 +1782,31 @@ section{
 .booking .book-form .flex .inputBox input{
 	width: 100%;
 	padding: 1.2rem 1.4rem;
+	color: #777;
 	font-size: 1.6rem;
 	text-transform: none;
 	margin-top: 1.5rem;
-	background-color: rgba(0,0,0,0);
+	border: .1rem solid #222;
 }
 
 .booking .book-form .flex .inputBox input:focus{
-	background: #000000;
-	color: #ffffff;
+	background: #222;
+	color: #fff;
 }
 
 .booking .book-form .flex .inputBox input:focus::placeholder{
-	color: #808B8D;
+	color: #fff9;
 }
 
-input[type=date]:invalid::-webkit-datetime-edit{
-	color: #808B8D;
-}
 
 .booking .book-form .flex .inputBox span{
-	font-size: 2rem;
-	color: #fff;
-	font-family: "Nunito",sans-serif;
+	font-size: 1.5rem;
+	color: #777;
 }
 
 .booking .book-form .primary-btn{
 	margin-top: 10px;
-	border-color: var(--primary-color);
+	border: .1rem solid var(--primary-color);
 }
 
 /* Destination Travel Detail */
@@ -1872,11 +1847,12 @@ input[type=date]:invalid::-webkit-datetime-edit{
 	font-size: 2.5rem;
 }
 
+
 .travel-des__text p{
 	margin-top: 20px;
 	font-size: 1.8rem;
     font-weight: 400;
-    line-height: 40px;
+    line-height: 3rem;
     text-align: justify;
 }
 
@@ -1884,6 +1860,11 @@ input[type=date]:invalid::-webkit-datetime-edit{
 .gallery .heading .travel-title{
 	font-size: 2.5rem;
 }
+
+.gallery .heading .travel-title span{
+	font-size: 2.5rem;
+}
+
 .gallery .box-container{
 	-webkit-columns: 3 25rem;
 	columns: 3 25rem;
@@ -1903,6 +1884,72 @@ input[type=date]:invalid::-webkit-datetime-edit{
 	margin-bottom: 1rem;
 }
 
+.gallery .box-container .box h3{
+	font-size: 1.8rem;
+	font-weight: 700;
+}
+
+/* Hotel */
+
+.hotel .box-container{
+	display: flex;
+	flex-wrap: wrap;
+	gap: 2rem;
+}
+
+.hotel .box-container .box{
+	flex: 1 1 30rem;
+	border-radius: .5rem;
+	overflow: hidden;
+	box-shadow: 0 1rem 2rem rgba(0, 0, 0, .1);
+}
+
+.hotel .box-container .box img{
+	height: 25rem;
+	width: 100%;
+	object-fit: cover;
+}
+
+.hotel .box-container .box .travel-hotel{
+	padding: 2rem;
+}
+
+.hotel .box-container .box .travel-hotel h2{
+	font-size: 2.5rem;
+	color: #333;
+	font-weight: 400;
+}
+.hotel .box-container .box .travel-hotel h3{
+	font-size: 1.8rem;
+	color: #636363;
+	font-weight: 400;
+	line-height: 2.5rem;
+	padding: 5px 0;
+}
+
+.hotel .box-container .box .travel-hotel h3 i{
+	color: var(--primary-color);
+}
+
+.hotel .box-container .box .travel-hotel .stars{
+	font-size: 2rem;
+	color: var(--primary-color);
+}
+
+.hotel .box-container .box .travel-hotel p{
+	text-align: justify;
+	margin-top: 5px;
+}
+
+.hotel .box-container .box .travel-hotel .price{
+	font-size: 2rem;
+	color: var(--primary-color);
+}
+
+.hotel .box-container .box .travel-hotel .price span{
+	color: #636363;
+	font-size: 1.5rem;
+}
 
 /* -----------------------blog------------------------ */
 
