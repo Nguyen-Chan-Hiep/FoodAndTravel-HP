@@ -18,7 +18,7 @@ public class hotel {
     @Column(name = "mo_ta")
     private String mo_ta;
     @Column(name = "gia")
-    private double gia;
+    private String gia;
     @Column(name = "dat_cho")
     private String dat_cho;
 
@@ -65,11 +65,11 @@ public class hotel {
         this.mo_ta = mo_ta;
     }
 
-    public double getGia() {
+    public String getGia() {
         return gia;
     }
 
-    public void setGia(double gia) {
+    public void setGia(String gia) {
         this.gia = gia;
     }
 
@@ -81,7 +81,7 @@ public class hotel {
         this.dat_cho = dat_cho;
     }
 
-    public hotel(int id, String hotel_name, String dia_chi, String image, String mo_ta, double gia, String dat_cho) {
+    public hotel(int id, String hotel_name, String dia_chi, String image, String mo_ta, String gia, String dat_cho) {
         this.id = id;
         this.hotel_name = hotel_name;
         this.dia_chi = dia_chi;

@@ -13,7 +13,7 @@ public class TravelTourReponse implements BaseRepository<travel_tour> {
     private SessionFactory sessionFactory;
     @Override
     public List<travel_tour> getAll() {
-        List<travel_tour> list = sessionFactory.getCurrentSession().createNativeQuery("seclect * from travel_tour", travel_tour.class).list();
+        List<travel_tour> list = sessionFactory.getCurrentSession().createNativeQuery("select * from travel_tour", travel_tour.class).list();
         return list;
     }
 

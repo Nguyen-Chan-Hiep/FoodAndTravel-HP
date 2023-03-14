@@ -14,7 +14,7 @@ public class travel_tour {
     @Column(name = "so_ngay")
     private int so_ngay;
     @Column(name = "gia")
-    private double gia;
+    private String gia;
     @Column(name = "lich_trinh")
     private String lich_trinh;
     @Column(name = "image")
@@ -49,11 +49,11 @@ public class travel_tour {
         this.so_ngay = so_ngay;
     }
 
-    public double getGia() {
+    public String getGia() {
         return gia;
     }
 
-    public void setGia(double gia) {
+    public void setGia(String gia) {
         this.gia = gia;
     }
 
@@ -81,7 +81,7 @@ public class travel_tour {
         this.dat_tour = dat_tour;
     }
 
-    public travel_tour(int id, String dia_diem, int so_ngay, double gia, String lich_trinh, String image, String dat_tour) {
+    public travel_tour(int id, String dia_diem, int so_ngay, String gia, String lich_trinh, String image, String dat_tour) {
         this.id = id;
         this.dia_diem = dia_diem;
         this.so_ngay = so_ngay;

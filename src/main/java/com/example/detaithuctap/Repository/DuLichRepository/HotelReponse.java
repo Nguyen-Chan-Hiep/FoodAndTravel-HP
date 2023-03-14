@@ -13,7 +13,7 @@ public class HotelReponse implements BaseRepository<hotel> {
     private SessionFactory sessionFactory;
     @Override
     public List<hotel> getAll() {
-        List<hotel> list = sessionFactory.getCurrentSession().createNativeQuery("seclect * from hotel", hotel.class).list();
+        List<hotel> list = sessionFactory.getCurrentSession().createNativeQuery("select * from hotel", hotel.class).list();
         return list;
     }
 
