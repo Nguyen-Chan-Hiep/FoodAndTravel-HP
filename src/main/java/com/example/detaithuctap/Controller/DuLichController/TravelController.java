@@ -77,6 +77,8 @@ public class TravelController {
     @GetMapping("/travel-destination-detail")
     public ModelAndView travelDestinationDetail(HttpSession session, @RequestParam("id") int id){
         ModelAndView modelAndView = new ModelAndView("travel-destination-detail");
+        List<travel_tour> travelTours = travelTourService.getAll();
+        modelAndView.addObject("tours", travelTours);
         address address1 = addressService.getById(id);
         modelAndView.addObject("address", address1);
         address_detail addressDetail = addressDetailService.findByIdAddress(id);

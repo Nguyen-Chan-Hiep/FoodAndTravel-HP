@@ -212,44 +212,19 @@
                         <h1 class="mb-5">Tour du lịch phổ biến</h1>
                     </div>
                     <div class="row g-4 justify-content-center">
+                    <c:forEach var="tour" items="${tours}">
                         <div class="col-lg-4 col-md-6">
                             <div class="package-item">
                                 <div class="overflow-hidden">
-                                    <img class="img-fluid" src="img/package-1.jpg" alt="">
+                                    <img class="img-fluid" src="detailimg/${tour.image}" alt="">
                                 </div>
                                 <div class="d-flex border-bottom package-heading">
-                                    <small class="flex-fill text-center border-end py-2"><i class="fa fa-map-marker me-2"></i>Hòn Dấu</small>
-                                    <small class="flex-fill text-center border-end py-2"><i class="fa fa-calendar-alt me-2"></i>3 ngày</small>
-                                    <small class="flex-fill text-center py-2"><i class="fa fa-user me-2"></i>2 người</small>
-                                </div>
-                                <div class="text-center p-4 travel-price">
-                                    <h3 class="mb-0">10.000.000</h3>
-                                    <div class="mb-3">
-                                        <small class="fa fa-star"></small>
-                                        <small class="fa fa-star"></small>
-                                        <small class="fa fa-star"></small>
-                                        <small class="fa fa-star"></small>
-                                        <small class="fa fa-star"></small>
-                                    </div>
-                                    <p>Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam eos</p>
-                                    <div class="d-flex justify-content-center mb-2 travel-button">
-                                        <a href="#booking" class="find-btn">Đặt ngay</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="package-item">
-                                <div class="overflow-hidden">
-                                    <img class="img-fluid" src="img/package-2.jpg" alt="">
-                                </div>
-                                <div class="d-flex border-bottom package-heading">
-                                    <small class="flex-fill text-center border-end py-2"><i class="fa fa-map-marker me-2"></i>Cát Bà</small>
-                                    <small class="flex-fill text-center border-end py-2"><i class="fa fa-calendar-alt me-2"></i>2 ngày</small>
+                                    <small class="flex-fill text-center border-end py-2"><i class="fa fa-map-marker me-2"></i>${tour.dia_diem}</small>
+                                    <small class="flex-fill text-center border-end py-2"><i class="fa fa-calendar-alt me-2"></i>${tour.so_ngay} ngày</small>
                                     <small class="flex-fill text-center py-2"><i class="fa fa-user me-2"></i>1 người</small>
                                 </div>
                                 <div class="text-center p-4 travel-price">
-                                    <h3 class="mb-0">2.999.999</h3>
+                                    <h3 class="mb-0">${tour.gia}</h3>
                                     <div class="mb-3">
                                         <small class="fa fa-star"></small>
                                         <small class="fa fa-star"></small>
@@ -257,39 +232,14 @@
                                         <small class="fa fa-star"></small>
                                         <small class="fa fa-star"></small>
                                     </div>
-                                    <p>Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam eos</p>
+                                    <p>${tour.lich_trinh} </p>
                                     <div class="d-flex justify-content-center mb-2 travel-button">
-                                        <a href="#booking" class="find-btn">Đặt ngay</a>
+                                        <a target="_blank" rel="noopener noreferrer" href="${tour.dat_tour}" class="find-btn">Đặt ngay</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="package-item">
-                                <div class="overflow-hidden">
-                                    <img class="img-fluid" src="img/package-3.jpg" alt="">
-                                </div>
-                                <div class="d-flex border-bottom package-heading">
-                                    <small class="flex-fill text-center border-end py-2"><i class="fa fa-map-marker me-2"></i>Đồ Sơn</small>
-                                    <small class="flex-fill text-center border-end py-2"><i class="fa fa-calendar-alt me-2"></i>4 ngày</small>
-                                    <small class="flex-fill text-center py-2"><i class="fa fa-user me-2"></i>6 người</small>
-                                </div>
-                                <div class="text-center p-4 travel-price">
-                                    <h3 class="mb-0">4.999.999</h3>
-                                    <div class="mb-3">
-                                        <small class="fa fa-star"></small>
-                                        <small class="fa fa-star"></small>
-                                        <small class="fa fa-star"></small>
-                                        <small class="fa fa-star"></small>
-                                        <small class="fa fa-star"></small>
-                                    </div>
-                                    <p>Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam eos</p>
-                                    <div class="d-flex justify-content-center mb-2 travel-button">
-                                        <a href="#booking" class="find-btn">Đặt ngay</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        </c:forEach>
                     </div>
                 </div>
             </div>
