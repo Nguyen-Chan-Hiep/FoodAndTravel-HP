@@ -26,8 +26,15 @@ public class TravelController {
     @Autowired
     private diaDiemService addressService;
     @GetMapping("/travel")
-    public String travelHome(HttpSession session){
-        return "travel";
+    public ModelAndView travelHome(HttpSession session){
+        ModelAndView modelAndView = new ModelAndView("travel");
+        List<address> list = addressService.getAll();
+        List<address> listAdd = new ArrayList<address>();
+        for (int i = 0; i < 8; i++){
+            listAdd.add(list.get(i));
+        }
+        modelAndView.addObject("listAdd", listAdd);
+        return modelAndView;
     }
 
     @GetMapping("/travel-tour")

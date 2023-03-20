@@ -106,78 +106,17 @@
             <h1>Tiếp tục tìm kiếm</h1>
         </div>
         <div class="box-container">
+        <c:forEach var="add" items="${listAdd}">
             <div class="box">
                 <div class="image">
-                    <img src="img/travel/destination/des-1.jpg" alt="">
+                    <img src="addressimg/${add.hinhAnh}" alt="">
                 </div>
                 <div class="content">
-                    <p>Cát Bà</p>
-                    <a href="/travel-destination-detail">đọc thêm <i class="fas fa-angle-right"></i></a>
+                    <p>${add.tenDiaDiem}</p>
+                    <a href="/travel-destination-detail?id=${add.id}">đọc thêm <i class="fas fa-angle-right"></i></a>
                 </div>
             </div>
-            <div class="box">
-                <div class="image">
-                    <img src="img/travel/destination/des-2.jpg" alt="">
-                </div>
-                <div class="content">
-                    <p>Đồ sơn</p>
-                    <a href="">đọc thêm <i class="fas fa-angle-right"></i></a>
-                </div>
-            </div>
-            <div class="box">
-                <div class="image">
-                    <img src="img/travel/destination/des-3.jpg" alt="">
-                </div>
-                <div class="content">
-                    <p>Hòn Dấu</p>
-                    <a href="">đọc thêm <i class="fas fa-angle-right"></i></a>
-                </div>
-            </div>
-            <div class="box">
-                <div class="image">
-                    <img src="img/travel/destination/des-4.jpg" alt="">
-                </div>
-                <div class="content">
-                    <p>Hòn Dấu</p>
-                    <a href="">đọc thêm <i class="fas fa-angle-right"></i></a>
-                </div>
-            </div>
-            <div class="box">
-                <div class="image">
-                    <img src="img/travel/destination/des-5.jpg" alt="">
-                </div>
-                <div class="content">
-                    <p>Hòn Dấu</p>
-                    <a href="">đọc thêm <i class="fas fa-angle-right"></i></a>
-                </div>
-            </div>
-            <div class="box">
-                <div class="image">
-                    <img src="img/travel/destination/des-6.jpg" alt="">
-                </div>
-                <div class="content">
-                    <p>Hòn Dấu</p>
-                    <a href="">đọc thêm <i class="fas fa-angle-right"></i></a>
-                </div>
-            </div>
-            <div class="box">
-                <div class="image">
-                    <img src="img/travel/destination/des-7.jpg" alt="">
-                </div>
-                <div class="content">
-                    <p>Hòn Dấu</p>
-                    <a href="">đọc thêm <i class="fas fa-angle-right"></i></a>
-                </div>
-            </div>
-            <div class="box">
-                <div class="image">
-                    <img src="img/travel/destination/des-8.jpg" alt="">
-                </div>
-                <div class="content">
-                    <p>Hòn Dấu</p>
-                    <a href="">đọc thêm <i class="fas fa-angle-right"></i></a>
-                </div>
-            </div>
+        </c:forEach>
         </div>
     </section>
     <!-- destination end -->
