@@ -38,7 +38,7 @@
                         <a href="/j_spring_security_logout" class="login-panel"><p>Hello, ${user.getUsername()}</p> Đăng xuất</a>
                     </c:if>
                     <div class="top-social">
-                        <a href="#"><i class="ti-facebook"></i></a>
+                        <a href="https://www.facebook.com/"><i class="ti-facebook"></i></a>
                         <a href="#"><i class="ti-twitter-alt"></i></a>
                         <a href="#"><i class="ti-linkedin"></i></a>
                         <a href="#"><i class="ti-pinterest"></i></a>
@@ -52,7 +52,7 @@
                 <div class="row">
                     <div class="col-lg-3 col-md-3">
                         <div class="logo">
-                            <a href="index.html">
+                            <a href="/home">
                                 <img src="img/logo.png" height="50" alt="">
                             </a>
                         </div>
@@ -78,7 +78,7 @@
                         <span>Danh mục</span>
                         <ul class="depart-hover">
                             <li class="active"><a href="#">Ẩm thực</a></li>
-                            <li><a href="#">Du lịch</a></li>
+                            <li><a href="/travel">Du lịch</a></li>
                         </ul>
                     </div>
                 </div>
@@ -86,9 +86,9 @@
                     <ul>
                         <li class="active"><a href="/home">Trang chủ</a></li>
                         <li><a href="/food">Ẩm thực</a></li>
-                        <li><a href="travel.html">Du lịch</a></li>
-                        <li><a href="blog.html">Tin tức</a></li>
-                        <li><a href="contact.html">Liên hệ</a></li>
+                        <li><a href="/travel">Du lịch</a></li>
+                        <li><a href="/news">Tin tức</a></li>
+                        <li><a href="/contact">Liên hệ</a></li>
                     </ul>
                 </nav>
                 <div id="mobile-menu-wrap"></div>

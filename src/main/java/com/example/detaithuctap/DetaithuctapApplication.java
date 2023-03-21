@@ -10,7 +10,6 @@ import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfi
 @SpringBootApplication(exclude = {HibernateJpaAutoConfiguration.class, JpaRepositoriesAutoConfiguration.class,
 SecurityAutoConfiguration.class})
 public class DetaithuctapApplication {
-
 	public static void main(String[] args) {
 		SpringApplication.run(DetaithuctapApplication.class, args);
 	}
