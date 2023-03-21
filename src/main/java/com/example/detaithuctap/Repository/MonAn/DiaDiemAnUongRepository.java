@@ -45,11 +45,13 @@ public class DiaDiemAnUongRepository implements BaseRepository<DiaDiemAnUong> {
         return null;
     }
     
-    @SuppressWarnings("unchecked")
-	public List<DiaDiemAnUong> listDiaDiemAnUongKhac(int id){
+	public List<DiaDiemAnUong> listDiaDiemAnUongKhac(int iddiadiem, int idmonan){
     	try {
-			return (List<DiaDiemAnUong>) sessionFactory.getCurrentSession().createQuery("from DiaDiemAnUong where id != :id")
-					.setParameter("id", id).list();
+			return (List<DiaDiemAnUong>) sessionFactory.getCurrentSession()
+					.createNativeQuery("SELECT d.* FROM "
+							+ "dia_diem_an_uong d join monan_diadiemanuong m on d.id_dia_diem = m.id_dia_diem and "
+							+ "m.id_mon_an = :idmonan where d.id_dia_diem != :iddiadiem", DiaDiemAnUong.class)
+					.setParameter("iddiadiem", iddiadiem).setParameter("idmonan", idmonan).list();
 		} catch (Exception e) {
 			return null;
 		}

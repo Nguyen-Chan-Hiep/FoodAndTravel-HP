@@ -53,4 +53,8 @@ public class NhanXetMonAnService implements BaseService<NhanXetMonAn> {
     public List<NhanXetMonAn> getCommentByIdMonAnAndIdUser(MonAn monAn, NguoiDung nguoiDung){
         return nhanXetMonAnRepository.getCommentByIdMonAnAndIdUser (monAn, nguoiDung);
     }
+    
+    public List<NhanXetMonAn> list3Comment(int id){
+    	return nhanXetMonAnRepository.list3Comment(id);
+    }
 }

@@ -66,7 +66,6 @@
 							<div class="food-details">
 								<div class="fd-title">
 									<h3>${diadiem.tendiadiem }</h3>
-									<a href="#" class="heart-icon"><i class="icon_heart_alt"></i></a>
 								</div>
 								<div class="fd-rating">
 									<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
@@ -81,6 +80,23 @@
 									<span class="fa fa-clock-o"></span> <span
 										class="fd-clock__status">Giờ mở cửa</span> <span
 										class="fd-clock__open">14:00 - 02:00</span>
+										<c:if test="${tg.soluonglike == 0}">
+		                                       <a class="heart-icon"
+		                                           style="margin-left: 20px; border-color: black;"
+		                                           id="heart"><i id="0"
+		                                               onclick="changeHeart(${tg.id}, this.id, ${tg.soluonglike})"
+		                                               class="fa fa-heart-o text-danger"
+		                                               style="font-size: 20px; border-color: black;"></i></a>
+		                                   </c:if>
+		                                   <c:if test="${tg.soluonglike != 0}">
+		                                       <a class="heart-icon"
+		                                           style="margin-left: 20px; border-color: black;"
+		                                           id="heart"><i id="1"
+		                                               onclick="changeHeart(${tg.id}, this.id, ${tg.soluonglike})"
+		                                               class="fa fa-heart text-danger"
+		                                               style="font-size: 20px; border-color: black;"></i></a>
+		                                   </c:if>
+		                                   <span id="solike"> Yêu thích (${tg.soluonglike})</span>
 								</div>
 								<div class="fd-price">
 									<span class="fa fa-money"></span> <span
@@ -90,47 +106,36 @@
 						</div>
 					</div>
 					<div class="customer-review-option">
-						<h4>2 Lượt đánh giá</h4>
-						<div class="comment-option">
-							<div class="co-item">
-								<div class="avatar-pic">
-									<img src="img/user/default-user.png" alt="">
-								</div>
-								<div class="avatar-text">
-									<div class="at-rating">
-										<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-											class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-											class="fa fa-star-o"></i>
-									</div>
-									<h5>
-										Tiến Đạt <span>28/02/2022</span>
-									</h5>
-									<div class="at-reply">Đồ ăn ngon!</div>
-								</div>
-							</div>
-							<div class="co-item">
-								<div class="avatar-pic">
-									<img src="img/user/default-user.png" alt="">
-								</div>
-								<div class="avatar-text">
-									<div class="at-rating">
-										<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-											class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-											class="fa fa-star-o"></i>
-									</div>
-									<h5>
-										Tiến Đạt <span>28/02/2022</span>
-									</h5>
-									<div class="at-reply">Đồ ăn ngon!</div>
-								</div>
-							</div>
+						<h4>Lượt đánh giá</h4>
+						<div class="comment-option" id="listComment">
+							<c:forEach var="s" items="${listNhanxet }">
+								<div class="co-item">
+	                                <div class="avatar-pic">
+	                                    <img src="img/user/default-user.png" alt="">
+	                                </div>
+	                                <div class="avatar-text">
+	                                    <div class="at-rating">
+	                                    <c:forEach var="o" begin="1" end="5">
+	                                    	<c:if test="${o <= s.star }">
+	                                    		<i class="fa fa-star"></i>
+	                                    	</c:if>
+	                                    	<c:if test="${o > s.star }">
+	                                    		<i class="fa fa-star-o"></i>
+	                                    	</c:if>
+	                                    </c:forEach>
+	                                    </div>
+	                                    <h5>${s.user.tendaidien } <span>${s.thoigianpost }</span></h5>
+	                                    <div class="at-reply">${s.noidung }</div>
+	                                </div>
+	                            </div>
+							</c:forEach>
 						</div>
 						<div class="leave-comment">
 							<h4>Bình luận</h4>
-							<form action="" class="comment-form">
+							<form class="comment-form">
 								<div class="row">
 									<div class="col-lg-12">
-										<textarea placeholder="Nhập bình luận của bạn"></textarea>
+										<textarea id="comment" placeholder="Nhập bình luận của bạn"></textarea>
 										<div class="personal-rating">
 											<h6>Đánh giá của bạn</h6>
 											<div class="rate">
@@ -146,7 +151,7 @@
 													for="star1" title="text">1 star</label>
 											</div>
 										</div>
-										<button type="submit" class="site-btn">Gửi bình luận</button>
+										<button onclick="binhluan()" type="button" class="site-btn">Gửi bình luận</button>
 									</div>
 								</div>
 							</form>
@@ -173,7 +178,7 @@
 					<c:forEach var="s" items="${listKhac}">
 						<a class="food-item" href="/chi-tiet-dia-diem?id=${s.id }&&idmonan=${tg.id_mon_an}">
 							<div class="food-item__img">
-								<img src="img/${s.hinhanh }" alt="">
+								<img src="img/${s.hinhanh }" alt="" width="200px" height="200px" style="border-radius: 10px">
 							</div>
 							<h4 class="food-item__name">${s.tendiadiem }</h4>
 							<h4 class="food-item__address">${s.diachi }</h4>
@@ -187,80 +192,7 @@
 	</div>
 	<!-- Related Food Section End -->
 
-	<!-- Footer Section Begin -->
-	<footer class="footer-section">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-3">
-					<div class="footer-left">
-						<div class="footer-logo">
-							<a href="index.html"> <img src="" height="25" alt="">
-							</a>
-						</div>
-						<ul>
-							<li>Hai Phong</li>
-							<li>Phone: +84 37.39.99.999</li>
-							<li>Email: datdo@gmail.com</li>
-						</ul>
-						<div class="footer-social">
-							<a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i
-								class="fa fa-instagram"></i></a> <a href="#"><i
-								class="fa fa-twitter"></i></a> <a href="#"><i
-								class="fa fa-pinterest"></i></a>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-2 offset-lg-1">
-					<div class="footer-widget">
-						<h5>Thông tin</h5>
-						<ul>
-							<li><a href="">Về chúng tôi</a></li>
-							<li><a href="">Ẩm thực</a></li>
-							<li><a href="">Du lịch</a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-lg-2">
-					<div class="footer-widget">
-						<h5>Thông tin</h5>
-						<ul>
-							<li><a href="">Tài khoản</a></li>
-							<li><a href="">Tin tức</a></li>
-							<li><a href="">Liên hệ</a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-lg-4">
-					<div class="newslatter-item">
-						<h5>Tham gia cùng chúng tôi</h5>
-						<p>Nhận thông tin cập nhật qua email về các món ăn và du lịch
-							nổi bật nhất của chúng tôi.</p>
-						<form action="#" class="subscribe-form">
-							<input type="text" placeholder="Nhập mail">
-							<button type="button">Đăng ký</button>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="copyright-reserved">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-12">
-						<div class="copyright-text">
-							Copyright
-							<script>
-								document.write(new Date().getFullYear());
-							</script>
-							All rights reserved <i class="fa fa-heart-o" aria-hidden="true"></i>
-							by DatDo
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</footer>
-	<!-- Footer Section End -->
+	<%@ include file="footer.jsp" %>
 
 	<!-- Js Plugins -->
 	<script src="js/jquery-3.3.1.min.js"></script>
@@ -273,6 +205,64 @@
 	<script src="js/jquery.slicknav.js"></script>
 	<script src="js/owl.carousel.min.js"></script>
 	<script src="js/main.js"></script>
-
+	<script>
+	
+       function changeHeart(idmonan, stt, solike) {
+    	   var x = solike;
+           if (stt == 1) {
+               stt = 0;
+               x = x - 1;
+              document.getElementById("heart").innerHTML = `<i id=`+stt+`
+                                              onclick="changeHeart(${tg.id}, `+stt+`,`+x+`)"
+                                              class="fa fa-heart-o text-danger"
+                                              style="font-size: 20px; border-color: black;"></i>`;
+                                          document.getElementById("solike").innerHTML = ' Yêu thích ('+x+')';
+           }
+           else {
+               stt = 1;
+               x = x + 1;
+               document.getElementById("heart").innerHTML = `<i id=`+stt+`
+                                               onclick="changeHeart(${tg.id}, `+stt+`,`+x+`)"
+                                               class="fa fa-heart text-danger"
+                                               style="font-size: 20px; border-color: black;"></i>`;
+                                           document.getElementById("solike").innerHTML = ' Yêu thích ('+x+')';
+           }
+           $.ajax({
+        	   url: "/them-like",
+        	   type: "POST",
+        	   data: {
+        		   idmonan: idmonan,
+        		   stt: stt
+        	   }
+           });
+       }
+       function binhluan(){
+    	   var comment = document.getElementById("comment").value, x = 0;
+    	   var a = document.getElementsByName("rating");
+           for (let i = 0; i < a.length; i++) {
+               if (a[i].checked === true) {
+                   x = a[i].value;
+                   break;
+               }
+           }
+           $.ajax({
+        	   url: "/comment",
+        	   type: "POST",
+        	   data: {
+        		   comment: comment,
+        		   sosao: x, 
+        		   idmonan: ${tg.id},
+        		   iduser : ${user.id}
+        	   },
+        	   success: function(data){
+        		    document.getElementById("listComment").innerHTML += data;
+        		    document.getElementById("comment").value = "";
+        	   },
+        	   error : function(){
+        		   alert("loi");
+        	   }
+           });
+       }
+   </script>
 </body>
 </html>

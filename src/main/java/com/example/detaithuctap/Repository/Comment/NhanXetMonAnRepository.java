@@ -45,16 +45,19 @@ public class NhanXetMonAnRepository implements BaseService<NhanXetMonAn> {
         return null;
     }
 
-    public List<NhanXetMonAn> getListCommentByIdMonAn(int id){
+    @SuppressWarnings("unchecked")
+	public List<NhanXetMonAn> getListCommentByIdMonAn(int id){
         return (List<NhanXetMonAn>) sessionFactory.getCurrentSession ().createQuery ("from NhanXetMonAn").list ();
     }
 
-    public List<NhanXetMonAn> getByIdUser(int id){
+    @SuppressWarnings("unchecked")
+	public List<NhanXetMonAn> getByIdUser(int id){
         return (List<NhanXetMonAn>) sessionFactory.getCurrentSession ().createQuery ("from NhanXetMonAn where user_id = :id")
                 .setParameter ("id", id).getSingleResult ();
     }
 
-    public List<NhanXetMonAn> getCommentByIdMonAnAndIdUser(MonAn monAn, NguoiDung nguoiDung){
+    @SuppressWarnings("unchecked")
+	public List<NhanXetMonAn> getCommentByIdMonAnAndIdUser(MonAn monAn, NguoiDung nguoiDung){
         try{
             return (List<NhanXetMonAn>) sessionFactory.getCurrentSession ().createQuery ("from NhanXetMonAn where " +
                             "monAn = :monan_id and user = :user_id")
@@ -62,6 +65,10 @@ public class NhanXetMonAnRepository implements BaseService<NhanXetMonAn> {
         }catch (Exception e){
             return null;
         }
-
+    }
+    
+	public List<NhanXetMonAn> list3Comment(int id){
+    	return (List<NhanXetMonAn>) sessionFactory.getCurrentSession().createNativeQuery("select * from binh_luan_ve_mon_an where monan_id = :id  limit 3 offset 0"
+    			, NhanXetMonAn.class).setParameter("id", id).list();
     }
 }

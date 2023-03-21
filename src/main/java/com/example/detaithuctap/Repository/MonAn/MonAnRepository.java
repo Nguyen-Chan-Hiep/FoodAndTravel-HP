@@ -47,7 +47,7 @@ public class MonAnRepository implements BaseRepository<MonAn> {
 
 
     public void saveTg(int id_mon_an,int id_dia_diem, Double dongia,String chitietmonan){
-        monan_diadiemanuong monan_diadiemanuong = new monan_diadiemanuong (id_mon_an, id_dia_diem, dongia, chitietmonan);
+        monan_diadiemanuong monan_diadiemanuong = new monan_diadiemanuong (id_mon_an, id_dia_diem, dongia, chitietmonan, 0);
         sessionFactory.getCurrentSession ().saveOrUpdate (monan_diadiemanuong);
     }
 
@@ -68,6 +68,19 @@ public class MonAnRepository implements BaseRepository<MonAn> {
 		} catch (Exception e) {
 			return null;
 		}
+    }
+    
+    public monan_diadiemanuong getMonan_diadiemanuong(int id) {
+    	try {
+			return (monan_diadiemanuong) sessionFactory.getCurrentSession().createQuery("from monan_diadiemanuong where id=:id_mon_an")
+					.setParameter("id_mon_an", id).getSingleResult();
+		} catch (Exception e) {
+			return null;
+		}
+    }
+    
+    public void save(monan_diadiemanuong monan_diadiemanuong) {
+    	sessionFactory.getCurrentSession().saveOrUpdate(monan_diadiemanuong);
     }
 
 }

@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 import javax.persistence.*;
 
 @Data
@@ -25,12 +27,18 @@ public class monan_diadiemanuong {
     private Double dongia;
     @Column(name = "chitietmonan")
     private String chitietmonan;
+    @Column(name = "soluonglike")
+    private int soluonglike;
+    
+    @OneToMany(mappedBy = "monan_diadiemanuong")
+    private List<NhanXetMonAn> nhanXetMonAns;
 
-    public monan_diadiemanuong (int id_mon_an, int id_dia_diem, Double dongia, String chitietmonan) {
+    public monan_diadiemanuong (int id_mon_an, int id_dia_diem, Double dongia, String chitietmonan, int soluonglike) {
         this.id_mon_an = id_mon_an;
         this.id_dia_diem = id_dia_diem;
         this.dongia = dongia;
         this.chitietmonan = chitietmonan;
+        this.soluonglike = soluonglike;
     }
 
 	public monan_diadiemanuong() {
@@ -76,6 +84,13 @@ public class monan_diadiemanuong {
 	public void setChitietmonan(String chitietmonan) {
 		this.chitietmonan = chitietmonan;
 	}
-    
+
+	public int getSoluonglike() {
+		return soluonglike;
+	}
+
+	public void setSoluonglike(int soluonglike) {
+		this.soluonglike = soluonglike;
+	}
     
 }

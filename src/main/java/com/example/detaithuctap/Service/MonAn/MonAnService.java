@@ -54,5 +54,12 @@ public class MonAnService implements BaseService<MonAn> {
     public monan_diadiemanuong getMonan_diadiemanuong(int idmonan, int iddiadiem) {
     	return monAnRepository.getMonan_diadiemanuong(idmonan, iddiadiem);
     }
-
+    
+    public monan_diadiemanuong getMonan_diadiemanuong(int id) {
+    	return monAnRepository.getMonan_diadiemanuong(id);
+    }
+    
+    public void save(monan_diadiemanuong monan_diadiemanuong) {
+    	monAnRepository.save(monan_diadiemanuong);
+    }
 }

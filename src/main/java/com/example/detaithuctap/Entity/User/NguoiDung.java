@@ -1,6 +1,5 @@
 package com.example.detaithuctap.Entity.User;
 
-import com.example.detaithuctap.Entity.MonAn.LikeMonAn;
 import com.example.detaithuctap.Entity.MonAn.NhanXetMonAn;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
@@ -32,7 +31,7 @@ public class NguoiDung {
     private String quyen;
 
     public NguoiDung(String username, String password, String tendaidien, String anhdaidien, String quyen,
-			List<NhanXetMonAn> nhanXetMonAns, List<LikeMonAn> likeMonAns) {
+			List<NhanXetMonAn> nhanXetMonAns) {
 		super();
 		this.username = username;
 		this.password = password;
@@ -40,7 +39,6 @@ public class NguoiDung {
 		this.anhdaidien = anhdaidien;
 		this.quyen = quyen;
 		this.nhanXetMonAns = nhanXetMonAns;
-		this.likeMonAns = likeMonAns;
 	}
     
 
@@ -114,14 +112,6 @@ public class NguoiDung {
 	}
 
 
-	public List<LikeMonAn> getLikeMonAns() {
-		return likeMonAns;
-	}
-
-
-	public void setLikeMonAns(List<LikeMonAn> likeMonAns) {
-		this.likeMonAns = likeMonAns;
-	}
 
 
 	public NguoiDung() {
@@ -133,7 +123,4 @@ public class NguoiDung {
     @JsonIgnore
     private List<NhanXetMonAn> nhanXetMonAns;
 
-    @OneToMany(mappedBy = "nguoiDung")
-    @JsonIgnore
-    private List<LikeMonAn> likeMonAns;
 }

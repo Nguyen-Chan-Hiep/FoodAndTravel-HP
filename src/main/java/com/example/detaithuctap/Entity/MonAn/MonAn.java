@@ -23,11 +23,10 @@ public class MonAn {
     @Column(name = "tenmonan")
     private String tenmonan;
 
-    public MonAn (String tenmonan, String hinhanh, String mota, int soluonglike) {
+    public MonAn (String tenmonan, String hinhanh, String mota) {
         this.tenmonan = tenmonan;
         this.hinhanh = hinhanh;
         this.mota = mota;
-        this.soluonglike = soluonglike;
     }
 
     @Column(name = "hinhanh")
@@ -38,19 +37,15 @@ public class MonAn {
     
     @Column(name = "gioithieu")
     private String gioithieu;
-
-    @Column(name = "soluonglike")
-    private int soluonglike;
     
 
-	public MonAn(String tenmonan, String hinhanh, String mota, String gioithieu, int soluonglike,
+	public MonAn(String tenmonan, String hinhanh, String mota, String gioithieu,
 			Loai_hinh_am_thuc loai_hinh_am_thuc) {
 		super();
 		this.tenmonan = tenmonan;
 		this.hinhanh = hinhanh;
 		this.mota = mota;
 		this.gioithieu = gioithieu;
-		this.soluonglike = soluonglike;
 		this.loai_hinh_am_thuc = loai_hinh_am_thuc;
 	}
 
@@ -100,13 +95,6 @@ public class MonAn {
 		this.mota = mota;
 	}
 
-	public int getSoluonglike() {
-		return soluonglike;
-	}
-
-	public void setSoluonglike(int soluonglike) {
-		this.soluonglike = soluonglike;
-	}
 
 	public Loai_hinh_am_thuc getLoai_hinh_am_thuc() {
 		return loai_hinh_am_thuc;
@@ -124,32 +112,10 @@ public class MonAn {
 		this.diaDiemAnUongs = diaDiemAnUongs;
 	}
 
-	public List<NhanXetMonAn> getNhanxetMonAns() {
-		return nhanxetMonAns;
-	}
-
-	public void setNhanxetMonAns(List<NhanXetMonAn> nhanxetMonAns) {
-		this.nhanxetMonAns = nhanxetMonAns;
-	}
-
-	public List<LikeMonAn> getLikeMonAns() {
-		return likeMonAns;
-	}
-
-	public void setLikeMonAns(List<LikeMonAn> likeMonAns) {
-		this.likeMonAns = likeMonAns;
-	}
 
 	@ManyToMany(mappedBy = "monAns", targetEntity = DiaDiemAnUong.class, fetch = FetchType.EAGER)
     private List<DiaDiemAnUong> diaDiemAnUongs;
 
-    @OneToMany(mappedBy = "monAn")
-    @JsonIgnore
-    private List<NhanXetMonAn> nhanxetMonAns;
-
-    @OneToMany(mappedBy = "monAn")
-    @JsonIgnore
-    private List<LikeMonAn> likeMonAns;
 
     @ManyToOne(targetEntity = Loai_hinh_am_thuc.class)
     @JoinColumn(name = "loaihinh_id")

@@ -60,7 +60,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-3 col-md-6 col-sm-8 order-2 order-lg-1">
-					<nav class="sidebar">
+					<%-- <nav class="sidebar">
 			            <div class="text">DANH MỤC</div>
 			            <ul>
 							<c:forEach var="p" items="${listL }">
@@ -69,7 +69,7 @@
 				                </li>
 							</c:forEach>
 			            </ul>
-			        </nav>
+			        </nav> --%>
 					<div class="blog-sidebar">
 						<div class="recent-post">
 							<h4>Tin tức nổi bật</h4>

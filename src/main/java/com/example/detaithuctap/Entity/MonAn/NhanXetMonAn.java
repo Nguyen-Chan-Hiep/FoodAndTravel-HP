@@ -22,10 +22,12 @@ public class NhanXetMonAn {
     private String noidung;
     @Column(name = "hinhAnhMonAnNguoiDungChup")
     private String hinhAnhMonAnNguoiDungChup;
-    @ManyToOne(targetEntity = MonAn.class)
+    @Column(name = "star")
+    private int star;
+    @ManyToOne(targetEntity = monan_diadiemanuong.class)
     @JoinColumn(name = "monan_id")
     @JsonIgnore
-    private MonAn monAn;
+    private monan_diadiemanuong monan_diadiemanuong;
     @ManyToOne(targetEntity = NguoiDung.class)
     @JoinColumn(name = "user_id")
     @JsonIgnore
@@ -35,11 +37,11 @@ public class NhanXetMonAn {
     @Column(name = "thoigianUpdate")
     private String thoigianUpdate;
 
-    public NhanXetMonAn (String noidung, String hinhAnhMonAnNguoiDungChup, MonAn monAn, NguoiDung user, String thoigianpost, String thoigianUpdate) {
-        this.id = 0;
+    public NhanXetMonAn (String noidung, String hinhAnhMonAnNguoiDungChup, int star, monan_diadiemanuong monan_diadiemanuong, NguoiDung user, String thoigianpost, String thoigianUpdate) {
         this.noidung = noidung;
         this.hinhAnhMonAnNguoiDungChup = hinhAnhMonAnNguoiDungChup;
-        this.monAn = monAn;
+        this.star = star;
+        this.monan_diadiemanuong = monan_diadiemanuong;
         this.user = user;
         this.thoigianpost = thoigianpost;
         this.thoigianUpdate = thoigianUpdate;
@@ -57,6 +59,14 @@ public class NhanXetMonAn {
 		this.id = id;
 	}
 
+	public monan_diadiemanuong getMonan_diadiemanuong() {
+		return monan_diadiemanuong;
+	}
+
+	public void setMonan_diadiemanuong(monan_diadiemanuong monan_diadiemanuong) {
+		this.monan_diadiemanuong = monan_diadiemanuong;
+	}
+
 	public String getNoidung() {
 		return noidung;
 	}
@@ -65,20 +75,20 @@ public class NhanXetMonAn {
 		this.noidung = noidung;
 	}
 
+	public int getStar() {
+		return star;
+	}
+
+	public void setStar(int star) {
+		this.star = star;
+	}
+
 	public String getHinhAnhMonAnNguoiDungChup() {
 		return hinhAnhMonAnNguoiDungChup;
 	}
 
 	public void setHinhAnhMonAnNguoiDungChup(String hinhAnhMonAnNguoiDungChup) {
 		this.hinhAnhMonAnNguoiDungChup = hinhAnhMonAnNguoiDungChup;
-	}
-
-	public MonAn getMonAn() {
-		return monAn;
-	}
-
-	public void setMonAn(MonAn monAn) {
-		this.monAn = monAn;
 	}
 
 	public NguoiDung getUser() {

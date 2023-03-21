@@ -102,7 +102,7 @@
                     var html = "";
                     for (p of ress) {
                         html += `<div class="col-lg-4 col-sm-6">
-                                <a class="food-item" href="/food-detail/`+ p.id + `">
+                                <a class="food-item" href="/food-detail?id=`+ p.id + `">
                                     <div class="food-item__img">
                                         <img src="img/`+ p.hinhanh + `" alt="" width=300px height = 250px style="border-radius: 10px">
                                     </div>
