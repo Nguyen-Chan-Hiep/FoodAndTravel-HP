@@ -46,7 +46,7 @@ public class MonAn {
 		this.hinhanh = hinhanh;
 		this.mota = mota;
 		this.gioithieu = gioithieu;
-		this.loai_hinh_am_thuc = loai_hinh_am_thuc;
+
 	}
 
 
