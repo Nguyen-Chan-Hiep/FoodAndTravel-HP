@@ -1,6 +1,5 @@
 package com.example.detaithuctap.Entity.DuLich;
 
-import javax.persistence.Column;
 import java.util.List;
 
 public class detail_model {
