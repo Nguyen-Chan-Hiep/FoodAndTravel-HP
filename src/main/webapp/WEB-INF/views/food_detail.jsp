@@ -76,7 +76,7 @@
 							<div class="recent-blog">
 								<a href="#" class="rb-item">
 									<div class="rb-pic">
-										<img src="img/banhdacua.jpg" alt="">
+										<img src="img/${monan.hinhanh}" alt="">
 									</div>
 									<div class="rb-text">
 										<h6>Top địa điểm bán bánh đa cua nổi tiếng</h6>
@@ -84,7 +84,7 @@
 									</div>
 								</a> <a href="#" class="rb-item">
 									<div class="rb-pic">
-										<img src="img/banhdacua.jpg" alt="">
+										<img src="img/${monan.hinhanh}" alt="">
 									</div>
 									<div class="rb-text">
 										<h6>Top địa điểm bán bánh đa cua nổi tiếng</h6>
@@ -92,7 +92,7 @@
 									</div>
 								</a> <a href="#" class="rb-item">
 									<div class="rb-pic">
-										<img src="img/banhdacua.jpg" alt="">
+										<img src="img/${monan.hinhanh}" alt="">
 									</div>
 									<div class="rb-text">
 										<h6>Top địa điểm bán bánh đa cua nổi tiếng</h6>
@@ -124,7 +124,7 @@
 
 							<div class="col-lg-12">
 								<div class="food-featured-img">
-									<img src="img/banhdacua.jpg" alt="">
+									<img src="img/${monan.hinhanh}" alt="" style="height: 400px">
 								</div>
 								<div class="food-featured-intro">
 									<p>${monan.gioithieu }</p>
@@ -169,6 +169,18 @@
 	<script src="js/jquery.slicknav.js"></script>
 	<script src="js/owl.carousel.min.js"></script>
 	<script src="js/main.js"></script>
+	<script>
+
+	</script>
 </body>
+    <style>
+        .test a:hover {
+            transform: scale(1.1);
+            opacity: 0.8;
+        }
+        .test a{
+            transition: all 0.3s ease-in-out;
+        }
+    </style>
 
 </html>

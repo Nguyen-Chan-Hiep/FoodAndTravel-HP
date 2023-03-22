@@ -56,7 +56,7 @@
 					<div class="food-list">
 						<div class="row" id="listMonAn">
 							<c:forEach var="s" items="${listM}">
-								<div class="col-lg-4 col-sm-6">
+								<div class="col-lg-4 col-sm-6 test">
 									<a class="food-item" href="/food-detail?id=${s.id }">
 										<div class="food-item__img">
 											<img src="img/${s.hinhanh }" alt="" width="300px"
@@ -123,4 +123,17 @@
             });
         }
     </script>
+    <style>
+        .test a:hover img{
+            transform: scale(1.1);
+            opacity: 0.8;
+        }
+        .test a{
+
+            overflow: hidden;
+        }
+        .test a img{
+            transition: all 0.3s ease-in-out;
+        }
+    </style>
 </html>
