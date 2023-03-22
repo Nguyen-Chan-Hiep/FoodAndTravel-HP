@@ -31,8 +31,7 @@ public class TinTucReponsImpl implements BaseRepository<news> {
 
     @Override
     public news getById(int id) {
-        news news = (com.example.detaithuctap.Entity.tintuc.news) sessionFactory.getCurrentSession().createNativeQuery("select * from tin_tuc where id = :id", news.class).setParameter("id", id).getSingleResult();
-
+        news news = sessionFactory.getCurrentSession().createNativeQuery("select * from tin_tuc where id = :id", news.class).setParameter("id", id).getSingleResult();
         return news;
     }
 

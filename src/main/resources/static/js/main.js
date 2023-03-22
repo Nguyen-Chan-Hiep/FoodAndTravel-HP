@@ -42,7 +42,7 @@
         loop: true,
         margin: 0,
         nav: true,
-        items: 1,
+        items: 2,
         dots: false,
         animateOut: 'fadeOut',
         animateIn: 'fadeIn',
@@ -50,6 +50,20 @@
         smartSpeed: 1200,
         autoHeight: false,
         autoplay: true,
+        responsive: {
+            0: {
+                items: 1,
+            },
+            576: {
+                items: 2,
+            },
+            992: {
+                items: 2,
+            },
+            1200: {
+                items: 2,
+            }
+        }
     });
 
     /*------------------
@@ -76,10 +90,12 @@
                 items: 2,
             },
             1200: {
-                items: 3,
+                items: 2,
             }
         }
     });
+
+
 
     /*------------------
        logo Carousel
@@ -249,17 +265,41 @@
 
 })(jQuery);
 
-    /*-------------------
-		Selection Food
-	--------------------- */
-    $('.feat-btn').click(function(){
-        $('.sidebar ul .feat-show').toggleClass("show");
-        $('.sidebar ul .first').toggleClass("rotate");
-    });
-    $('.serv-btn').click(function(){
-        $('.sidebar ul .serv-show').toggleClass("show");
-        $('.sidebar ul .second').toggleClass("rotate");
-    });
-    $('.sidebar ul li').click(function(){
-        $(this).addClass("active").siblings().removeClass("active");
-    });
+/*-------------------
+    Selection Food
+--------------------- */
+$('.feat-btn').click(function(){
+    $('.sidebar ul .feat-show').toggleClass("show");
+    $('.sidebar ul .first').toggleClass("rotate");
+});
+$('.serv-btn').click(function(){
+    $('.sidebar ul .serv-show').toggleClass("show");
+    $('.sidebar ul .second').toggleClass("rotate");
+});
+$('.sidebar ul li').click(function(){
+    $(this).addClass("active").siblings().removeClass("active");
+});
+
+let imgBtn = document.querySelectorAll('.vid-btn');
+imgBtn.forEach(btn => {
+    btn.addEventListener('click', () => {
+        document.querySelector('.controls .active').classList.remove('active');
+        btn.classList.add('active');
+        let src = btn.getAttribute('data-src');
+        document.querySelector('#image-slider').src = src;
+    })
+})
+
+
+// Back to top button
+$(window).scroll(function () {
+    if ($(this).scrollTop() > 300) {
+        $('.back-to-top').fadeIn('slow');
+    } else {
+        $('.back-to-top').fadeOut('slow');
+    }
+});
+$('.back-to-top').click(function () {
+    $('html, body').animate({scrollTop: 0}, 1500, 'easeInOutExpo');
+    return false;
+});

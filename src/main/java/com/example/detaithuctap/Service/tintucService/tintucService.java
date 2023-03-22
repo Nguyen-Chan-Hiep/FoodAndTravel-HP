@@ -9,4 +9,5 @@ public interface tintucService {
     public void saveorupdate(news news);
     public List<news> getAll();
     public void delNews(int id);
+    public news getById(int id);
 }

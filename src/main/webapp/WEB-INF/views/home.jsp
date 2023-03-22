@@ -32,38 +32,79 @@
 
     <%@ include file="header.jsp" %>
     <!-- Hero Section Begin -->
-    <section class="hero-section">
-        <div class="hero-items owl-carousel">
-            <div class="single-hero-items set-bg" data-setbg="img/daohondau.jpg">
+        <div class="hero-section">
+            <div class="container">
+                <div class="row">
+                    <div class="hero-items owl-carousel">
+                        <div class="single-hero-items set-bg" data-setbg="img/doson.jpg">
+                            <h3>Đồ Sơn</h3>
+                        </div>
+                        <div class="single-hero-items set-bg" data-setbg="img/daocatba.jpg">
+                            <h3>Đảo Cát Bà</h3>
+                        </div>
+                        <div class="single-hero-items set-bg" data-setbg="img/daohondau.jpg">
+                            <h3>Đảo Hòn Dấu</h3>
+                        </div>
+                        <div class="single-hero-items set-bg" data-setbg="img/banhdacuaHP.jpg">
+                            <h3>Bánh Đa Cua</h3>
+                        </div>
+                        <div class="single-hero-items set-bg" data-setbg="img/buncacay.jpg">
+                            <h3>Bún Cá Cay</h3>
+                        </div>
+                        <div class="single-hero-items set-bg" data-setbg="img/banhmycay.jpg">
+                            <h3>Bánh Mỳ Cay</h3>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="single-hero-items set-bg" data-setbg="img/daocatba.jpg">
-            </div>
-            <div class="single-hero-items set-bg" data-setbg="img/daohondau.jpg">
+        </div>
+        <!-- Hero Section End -->
+<!-- About Section Begin -->
+    <section class="about">
+        <h2 class="heading-about">KHÁM PHÁ HẢI PHÒNG</h2>
+        <p class="para-about">Cùng chúng tôi tìm hiểu nét đặc sắc về ẩm thực và du lịch của Hải Phòng ngay thôi nào.</p>
+        <div class="container about-us-content">
+            <div class="row">
+                <div class="col-lg-3 col-md-12">
+                    <div class="img-about">
+                        <img src="img/haiphong1.jpg" class="img-fluid image-content" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12">
+                    <div class="content-about">
+                        <h4 class="heading-content">Giới thiệu</h4>
+                        <p class="para-content-about">Hải Phòng là một trong những trung tâm du lịch lớn nhất cả nước với những di tích lịch sử, danh lam thắng cảnh, các lễ hội lớn và những khu du lịch nghỉ mát, giải trí nổi tiếng đạt tiêu chuẩn quốc tế.  Hàng năm, Hải Phòng là một trong những địa diểm thu hút hàng ngàn lượt khách du lịch đến tham quan và nghỉ dưỡng ở những khu du lịch nổi tiếng như Cát Bà, Đồ Sơn, Bạch Đằng Giang...</p>
+                        <p class="para-content-about">Ngoài những địa điểm du lịch nổi tiếng, Hải Phòng còn được biết đến là nơi có nền ẩm thực đa dạng, phong phú. Ẩm thực Hải Phòng được nhiều người sành ăn đánh giá là một trong số ít những phong cách chế biến - thưởng thức ẩm thực địa phương đặc sắc, đa dạng, phong phú và tinh tế bậc nhất của Việt Nam. Có thể kể đến một số món ăn nổi bật như: nem cua bể, bánh đa cua, bánh mì cay, pa tê gan, bún cá cay...</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-12">
+                    <div class="img-about">
+                        <img src="img/haiphong2.jpg" class="img-fluid image-content" alt="">
+                    </div>
+                </div>
             </div>
         </div>
     </section>
-    <!-- Hero Section End -->
-
-    <div class="content-introduce">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-title">
-                        <h2>Giới thiệu</h2>
+    <!-- About Section End -->
+    <!-- <div class="content-introduce">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="section-title">
+                            <h2>Giới thiệu</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="detail-introduce">
+                            <p>Hải Phòng là một trong những trung tâm du lịch lớn nhất cả nước với những di tích lịch sử, danh lam thắng cảnh, các lễ hội lớn và những khu du lịch nghỉ mát, giải trí nổi tiếng đạt tiêu chuẩn quốc tế.  Hàng năm, Hải Phòng là một trong những địa diểm thu hút hàng ngàn lượt khách du lịch đến tham quan và nghỉ dưỡng ở những khu du lịch nổi tiếng như Cát Bà, Đồ Sơn, Bạch Đằng Giang...</p>
+                            <p>Ngoài những địa điểm du lịch nổi tiếng, Hải Phòng còn được biết đến là nơi có nền ẩm thực đa dạng, phong phú. Ẩm thực Hải Phòng được nhiều người sành ăn đánh giá là một trong số ít những phong cách chế biến - thưởng thức ẩm thực địa phương đặc sắc, đa dạng, phong phú và tinh tế bậc nhất của Việt Nam. Có thể kể đến một số món ăn nổi bật như: nem cua bể, bánh đa cua, bánh mì cay, pa tê gan, bún cá cay...</p>
+                            <p>Trong chuyến hành trình này, hãy cùng chúng tôi khám phá những món ăn ngon và địa điểm du lịch độc đáo tại Hải Phòng nhé!!!</p>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="detail-introduce">
-                        <p>Hải Phòng là một trong những trung tâm du lịch lớn nhất cả nước với những di tích lịch sử, danh lam thắng cảnh, các lễ hội lớn và những khu du lịch nghỉ mát, giải trí nổi tiếng đạt tiêu chuẩn quốc tế.  Hàng năm, Hải Phòng là một trong những địa diểm thu hút hàng ngàn lượt khách du lịch đến tham quan và nghỉ dưỡng ở những khu du lịch nổi tiếng như Cát Bà, Đồ Sơn, Bạch Đằng Giang...</p>
-                        <p>Ngoài những địa điểm du lịch nổi tiếng, Hải Phòng còn được biết đến là nơi có nền ẩm thực đa dạng, phong phú. Ẩm thực Hải Phòng được nhiều người sành ăn đánh giá là một trong số ít những phong cách chế biến - thưởng thức ẩm thực địa phương đặc sắc, đa dạng, phong phú và tinh tế bậc nhất của Việt Nam. Có thể kể đến một số món ăn nổi bật như: nem cua bể, bánh đa cua, bánh mì cay, pa tê gan, bún cá cay...</p>
-                        <p>Trong chuyến hành trình này, hãy cùng chúng tôi khám phá những món ăn ngon và địa điểm du lịch độc đáo tại Hải Phòng nhé!!!</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- Latest Blog Section Begin -->
     <section class="latest-blog spad">
@@ -77,66 +118,24 @@
                     </div>
                 </div>
                 <div class="row">
+                <c:forEach var="noi" items="${tintuc}">
                     <div class="col-lg-4 col-md-6">
                         <div class="single-latest-blog">
-                            <img src="img/banh-da-cua.jpg" alt="" height=340px>
+                            <img src="img/${noi.image}" alt="" height=340px>
                             <div class="latest-text">
                                 <div class="tag-list">
                                     <div class="tag-item">
                                         <i class="fa fa-calendar-o"></i>
-                                        22/02/2023
-                                    </div>
-                                    <div class="tag-item">
-                                        <i class="fa fa-comment-o"></i>
-                                        5
+                                        ${noi.timnepost}
                                     </div>
                                 </div>
-                                <a href="">
-                                    <h4>Bánh đa cua Hải Phòng</h4>
+                                <a href="/blog-detail?bid=${noi.id}">
+                                    <h4>${noi.tieuDe}</h4>
                                 </a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="single-latest-blog">
-                            <img src="img/nem-cua-be.jpg" alt="" width=300px height=340px>
-                            <div class="latest-text">
-                                <div class="tag-list">
-                                    <div class="tag-item">
-                                        <i class="fa fa-calendar-o"></i>
-                                        22/02/2023
-                                    </div>
-                                    <div class="tag-item">
-                                        <i class="fa fa-comment-o"></i>
-                                        5
-                                    </div>
-                                </div>
-                                <a href="">
-                                    <h4>Nem Cua Bể</h4>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="single-latest-blog">
-                            <img src="img/nem-chua.jpg" alt="">
-                            <div class="latest-text">
-                                <div class="tag-list">
-                                    <div class="tag-item">
-                                        <i class="fa fa-calendar-o"></i>
-                                        22/02/2023
-                                    </div>
-                                    <div class="tag-item">
-                                        <i class="fa fa-comment-o"></i>
-                                        5
-                                    </div>
-                                </div>
-                                <a href="">
-                                    <h4>Nem chua Hai Phòng</h4>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+                </c:forEach>
                 </div>
             </div>
             <div class="latest-blog__popular">
@@ -290,73 +289,7 @@
     <!-- Latest Blog Section End -->
 
     <!-- Footer Section Begin -->
-    <footer class="footer-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3">
-                    <div class="footer-left">
-                        <div class="footer-logo">
-                            <a href="index.html">
-                                <img src="" height="50" alt="">
-                            </a>
-                        </div>
-                        <ul>
-                            <li>Hai Phong</li>
-                            <li>Phone: +84 37.39.99.999</li>
-                            <li>Email: datdo@gmail.com</li>
-                        </ul>
-                        <div class="footer-social">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-instagram"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-pinterest"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-2 offset-lg-1">
-                    <div class="footer-widget">
-                        <h5>Thông tin</h5>
-                        <ul>
-                            <li><a href="">Về chúng tôi</a></li>
-                            <li><a href="">Ẩm thực</a></li>
-                            <li><a href="">Du lịch</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-2">
-                    <div class="footer-widget">
-                        <h5>Thông tin</h5>
-                        <ul>
-                            <li><a href="">Tài khoản</a></li>
-                            <li><a href="">Tin tức</a></li>
-                            <li><a href="">Liên hệ</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="newslatter-item">
-                        <h5>Tham gia cùng chúng tôi</h5>
-                        <p>Nhận thông tin cập nhật qua email về các món ăn và du lịch nổi bật nhất của chúng tôi.</p>
-                        <form action="#" class="subscribe-form">
-                            <input type="text" placeholder="Nhập mail">
-                            <button type="button">Đăng ký</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="copyright-reserved">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="copyright-text">
-                            Copyright <script>document.write(new Date().getFullYear());</script> All rights reserved <i class="fa fa-heart-o" aria-hidden="true"></i> by DatDo
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <%@ include file="footer.jsp"%>
     <!-- Footer Section End -->
 
     <!-- Js Plugins -->

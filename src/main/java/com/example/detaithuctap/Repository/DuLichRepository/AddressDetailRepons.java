@@ -14,7 +14,8 @@ public class AddressDetailRepons implements BaseRepository<address_detail> {
     private SessionFactory sessionFactory;
     @Override
     public List<address_detail> getAll() {
-        List<address_detail> list = sessionFactory.getCurrentSession().createNativeQuery("seclect * from adress_detail", address_detail.class).list();
+        List<address_detail> list = sessionFactory.getCurrentSession().createNativeQuery("seclect * from adress_detail",
+                address_detail.class).list();
         return list;
     }
 

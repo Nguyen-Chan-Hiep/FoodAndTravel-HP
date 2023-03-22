@@ -2,16 +2,10 @@ package com.example.detaithuctap.Entity.User;
 
 import com.example.detaithuctap.Entity.MonAn.NhanXetMonAn;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 import javax.persistence.*;
 import java.util.List;
 
-//@Data
-//@AllArgsConstructor
-//@NoArgsConstructor
+
 @Entity
 @Table(name = "user")
 public class NguoiDung {

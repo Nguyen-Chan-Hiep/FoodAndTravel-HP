@@ -12,6 +12,7 @@ import com.example.detaithuctap.Service.MonAn.DiaDiemAnUongService;
 import com.example.detaithuctap.Service.MonAn.Loai_hinh_am_thucService;
 import com.example.detaithuctap.Service.MonAn.MonAnService;
 import com.example.detaithuctap.Service.NguoiDung.NguoiDungService;
+import com.example.detaithuctap.Service.tintucService.tintucService;
 import com.example.detaithuctap.auth.MyUserDetail;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -25,6 +26,7 @@ import javax.servlet.http.HttpSession;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -46,10 +48,20 @@ public class HomeController {
     @Autowired
     private Loai_hinh_am_thucService loai_hinh_am_thucService;
 
+	@Autowired
+	private tintucService tintucService;
+
     @GetMapping({"/", "/home"})
-    public String home(HttpSession session)
+    public ModelAndView home(HttpSession session)
     {
-        return "home";
+        ModelAndView modelAndView = new ModelAndView("home");
+		List<news> list = tintucService.getAll();
+		List<news> noibat = new ArrayList<news>();
+		for (int i = 0; i < 3; i++){
+			noibat.add(list.get(i));
+		}
+		modelAndView.addObject("tintuc", noibat);
+		return modelAndView;
     }
    
 

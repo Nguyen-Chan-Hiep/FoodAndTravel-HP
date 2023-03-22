@@ -27,4 +27,9 @@ public class tintucServiceImpl implements tintucService {
     public void delNews(int id) {
         reponsitory.delete(id);
     }
+
+    @Override
+    public news getById(int id) {
+        return reponsitory.getById(id);
+    }
 }
