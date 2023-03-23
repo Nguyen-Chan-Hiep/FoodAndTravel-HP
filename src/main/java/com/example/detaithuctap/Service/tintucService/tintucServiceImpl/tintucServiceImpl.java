@@ -19,9 +19,13 @@ public class tintucServiceImpl implements tintucService {
     }
 
     @Override
-    public List<news> getAll() {
-        return reponsitory.getAll();
+    public List<news> getAll(String search) {
+        return reponsitory.getAll(search);
     }
+
+    @Override
+    public List<news> getAll() {
+        return reponsitory.getAll();    }
 
     @Override
     public void delNews(int id) {

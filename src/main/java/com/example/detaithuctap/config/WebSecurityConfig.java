@@ -34,7 +34,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
 
         http.csrf().disable().cors().disable();
-        http.authorizeRequests ().antMatchers ("/", "/home", "/food", "/food-detail", "/travel", "/travel-destination", "/travel-destination-detail", "/travel-hotel", "/travel-tour").permitAll ()
+        http.authorizeRequests ().antMatchers ("/", "/home", "/food", "/food-detail", "/news", "/contact", "/blog-detail", "/searchnews", "/travel", "/travel-destination", "/travel-destination-detail", "/travel-hotel", "/travel-tour").permitAll ()
                 .anyRequest ().authenticated ()
                 .and ().formLogin ()
                 .defaultSuccessUrl ("/checkLogin").failureUrl ("/login?error=false")

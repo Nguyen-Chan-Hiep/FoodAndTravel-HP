@@ -54,18 +54,10 @@
                     <div class="blog-sidebar">
                         <div class="search-form">
                             <h4>Search</h4>
-                            <form action="#">
-                                <input type="text" placeholder="Tìm kiếm...">
+                            <form action="/searchnews">
+                                <input name="search" type="text" placeholder="Tìm kiếm..." value="">
                                 <button type="submit"><i class="fa fa-search"></i></button>
                             </form>
-                        </div>
-                        <div class="blog-catagory">
-                            <h4>Danh mục</h4>
-                            <ul>
-                                <li><a href="/travel">Du lịch</a></li>
-                                <li><a href="/food">Ẩm thực</a></li>
-                                <li><a href=""></a></li>
-                            </ul>
                         </div>
                         <div class="recent-post">
                             <h4>Bài viết gần đây</h4>
@@ -73,7 +65,7 @@
                             <c:forEach var="noi" items="${noibat}">
                                 <a href="/blog-detail?bid=${noi.id}" class="rb-item">
                                     <div class="rb-pic">
-                                        <img src="img/${noi.image}" alt="">
+                                        <img weight="300px" height="200px" src="img/${noi.image}" alt="">
                                     </div>
                                     <div class="rb-text">
                                         <h6>${noi.tieuDe}</h6>

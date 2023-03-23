@@ -12,11 +12,25 @@ import java.util.List;
 public class TinTucReponsImpl implements BaseRepository<news> {
     @Autowired
     private SessionFactory sessionFactory;
+
+    public List<news> getAll(String search) {
+        try{
+            List<news> list = sessionFactory.getCurrentSession().createNativeQuery("select * from tin_tuc tt " +
+                            "where (tt.tieu_de_tin_tuc like :search1 or tt.loai_hinh like :search2) order by thoigianpost", news.class)
+                    .setParameter("search1", search).setParameter("search2", search)
+                    .list();
+            return list;
+        } catch (Exception e) {
+            return null;
+        }
+
+    }
+
     @Override
     public List<news> getAll() {
-        List<news> list = sessionFactory.getCurrentSession().createNativeQuery("select * from tin_tuc order by thoigianpost", news.class).list();
-        return list;
-    }
+        List<news> list = sessionFactory.getCurrentSession().createNativeQuery("select * from tin_tuc " +
+                        "order by thoigianpost", news.class).list();
+        return list;    }
 
     @Override
     public void saveOrUpdate(news news) {
