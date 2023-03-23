@@ -90,6 +90,12 @@ public class HomeController {
     	modelAndView.addObject("listL", list);
     	MonAn monAn = monAnService.getById(id);
     	modelAndView.addObject("monan", monAn);
+		String search = "%Ẩm thực%";
+		List<news> noibat = new ArrayList<news>();
+		for (int i = 0; i < tintucService.getAll(search).toArray().length; i++){
+			noibat.add(tintucService.getAll(search).get(i));
+		}
+		modelAndView.addObject("news", noibat);
         return modelAndView;
     }
     

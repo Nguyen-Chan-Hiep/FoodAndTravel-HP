@@ -291,6 +291,7 @@
     <!-- Footer Section Begin -->
     <%@ include file="footer.jsp"%>
     <!-- Footer Section End -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-long-arrow-up"></i></a>
 
     <!-- Js Plugins -->
     <script src="/js/jquery-3.3.1.min.js"></script>

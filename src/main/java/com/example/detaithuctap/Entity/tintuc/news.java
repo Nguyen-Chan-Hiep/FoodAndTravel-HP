@@ -18,7 +18,7 @@ public class news {
     @Column(name = "loai_hinh")
     private String loaiHinh;
     @Column(name = "thoigianpost")
-    private Date timnepost;
+    private String timnepost;
     @Column(name = "noi_dung_tin_tuc")
     private String noiDung;
     @Column(name = "chi_tiet_hinh_anh")
@@ -35,7 +35,7 @@ public class news {
     public news() {
     }
 
-    public news(int id, String tieuDe, String image, String loaiHinh, Date timnepost, String noiDung, String hinhAnhChiTiet) {
+    public news(int id, String tieuDe, String image, String loaiHinh, String timnepost, String noiDung, String hinhAnhChiTiet) {
         this.id = id;
         this.tieuDe = tieuDe;
         this.image = image;
@@ -53,7 +53,7 @@ public class news {
         this.hinhAnhChiTiet = hinhAnhChiTiet;
     }
 
-    public news(String tieuDe, String image, String loaiHinh, Date timnepost, String noiDung, String hinhAnhChiTiet) {
+    public news(String tieuDe, String image, String loaiHinh, String timnepost, String noiDung, String hinhAnhChiTiet) {
         this.tieuDe = tieuDe;
         this.image = image;
         this.loaiHinh = loaiHinh;
@@ -86,11 +86,11 @@ public class news {
         this.loaiHinh = loaiHinh;
     }
 
-    public Date getTimnepost() {
+    public String getTimnepost() {
         return timnepost;
     }
 
-    public void setTimnepost(Date timnepost) {
+    public void setTimnepost(String timnepost) {
         this.timnepost = timnepost;
     }
 

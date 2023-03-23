@@ -243,6 +243,7 @@
                     </div>
                 </div>
             </div>
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-long-arrow-up"></i></a>
 
     	<%@ include file="footer.jsp"%>
     </body>
