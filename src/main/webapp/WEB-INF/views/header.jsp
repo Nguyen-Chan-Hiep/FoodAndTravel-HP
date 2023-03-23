@@ -77,7 +77,7 @@
                         <i class="ti-menu"></i>
                         <span>Danh mục</span>
                         <ul class="depart-hover">
-                            <li class="active"><a href="#">Ẩm thực</a></li>
+                            <li class="active"><a href="/food">Ẩm thực</a></li>
                             <li><a href="/travel">Du lịch</a></li>
                         </ul>
                     </div>
