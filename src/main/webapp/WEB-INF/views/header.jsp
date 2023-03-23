@@ -35,7 +35,7 @@
                         <a href="/login" class="login-panel"><i class="fa fa-user"></i>Đăng nhập</a>
                     </c:if>
                     <c:if test="${user != null }">
-                        <a href="/j_spring_security_logout" class="login-panel"><p>Hello, ${user.getUsername()}</p> Đăng xuất</a>
+                        <a href="/j_spring_security_logout" class="login-panel"> Đăng xuất</a><a href="userDetail"><strong class="login-panel">Hello, ${user.getUsername()}</strong></a>
                     </c:if>
                     <div class="top-social">
                         <a href="https://www.facebook.com/"><i class="ti-facebook"></i></a>

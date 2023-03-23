@@ -5,7 +5,7 @@ import com.example.detaithuctap.Entity.MonAn.MonAn;
 import com.example.detaithuctap.Entity.MonAn.NhanXetMonAn;
 import com.example.detaithuctap.Entity.MonAn.monan_diadiemanuong;
 import com.example.detaithuctap.Entity.User.NguoiDung;
-import com.example.detaithuctap.Entity.tintuc.news;
+//import com.example.detaithuctap.Entity.tintuc.news;
 import com.example.detaithuctap.Entity.MonAn.Loai_hinh_am_thuc;
 import com.example.detaithuctap.Service.Comment.NhanXetMonAnService;
 import com.example.detaithuctap.Service.MonAn.DiaDiemAnUongService;
@@ -155,4 +155,22 @@ public class HomeController {
 		    	+ "							</div>";
     	return html;
     }
+    
+    @GetMapping("/account")
+    public String test1() {
+    	return "quanlybaiviet";
+    }
+    
+    @GetMapping("/addNew")
+    public String addNew() {
+    	return "addNew";
+    }
+    
+    @GetMapping("/userDetail")
+    public String userDetail() {
+    	return "userDetail";
+    }
+    
+//    @PostMapping("/saveInfomation")
+//    
 }
