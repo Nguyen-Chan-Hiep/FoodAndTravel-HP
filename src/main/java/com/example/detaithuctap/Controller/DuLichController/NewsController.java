@@ -1,30 +1,9 @@
-<<<<<<< HEAD
-//package com.example.detaithuctap.Controller.DuLichController;
-//
-//import org.springframework.stereotype.Controller;
-//import org.springframework.web.bind.annotation.GetMapping;
-//
-//import javax.servlet.http.HttpSession;
-//
-//@Controller
-//public class NewsController {
-//    @GetMapping("/contact")
-//    public String contactHome(HttpSession session){
-//        return "contact";
-//    }
-//    @GetMapping("/news")
-//    public String newsHome(HttpSession session){
-//        return "blog";
-//    }
-//}
-=======
 package com.example.detaithuctap.Controller.DuLichController;
 
 import com.example.detaithuctap.Entity.tintuc.news;
 import com.example.detaithuctap.Service.tintucService.tintucService;
 import com.example.detaithuctap.auth.MyUserDetail;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -35,7 +14,6 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpSession;
 import java.sql.Timestamp;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -102,4 +80,3 @@ public class NewsController {
     }
 
 }
->>>>>>> ea30e2cfb04152c2a3b90584e338d6d916f329ce

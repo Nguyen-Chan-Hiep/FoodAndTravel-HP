@@ -7,6 +7,7 @@ import com.example.detaithuctap.Entity.MonAn.monan_diadiemanuong;
 import com.example.detaithuctap.Entity.User.NguoiDung;
 //import com.example.detaithuctap.Entity.tintuc.news;
 import com.example.detaithuctap.Entity.MonAn.Loai_hinh_am_thuc;
+import com.example.detaithuctap.Entity.tintuc.news;
 import com.example.detaithuctap.Service.Comment.NhanXetMonAnService;
 import com.example.detaithuctap.Service.MonAn.DiaDiemAnUongService;
 import com.example.detaithuctap.Service.MonAn.Loai_hinh_am_thucService;
