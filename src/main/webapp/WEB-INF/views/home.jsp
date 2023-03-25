@@ -161,7 +161,7 @@
                                         5
                                     </div>
                                 </div>
-                                <a href="">
+                                <a href="/food-detail?id=17">
                                     <h4>Cháo khoái</h4>
                                 </a>
                             </div>
@@ -181,7 +181,7 @@
                                         5
                                     </div>
                                 </div>
-                                <a href="">
+                                <a href="/food-detail?id=3">
                                     <h4>Cá mòi kho Kiến Thụy</h4>
                                 </a>
                             </div>
@@ -201,7 +201,7 @@
                                         5
                                     </div>
                                 </div>
-                                <a href="">
+                                <a href="/food-detail?id=9">
                                     <h4>Dừa dầm</h4>
                                 </a>
                             </div>
@@ -233,8 +233,8 @@
                                         3
                                     </div>
                                 </div>
-                                <a href="">
-                                    <h4>Đảo Cát Bà</h4>
+                                <a href="/travel-destination-detail?id=27">
+                                    <h4>Chuỗi Bãi Biển Cát Cò</h4>
                                 </a>
                                 <p>Đảo cát bà là một địa điểm du lịch nổi tiếng của Hải Phòng</p>
                             </div>
@@ -254,7 +254,7 @@
                                         5
                                     </div>
                                 </div>
-                                <a href="">
+                                <a href="/travel-destination-detail?id=32">
                                     <h4>Đảo Hòn Dấu</h4>
                                 </a>
                                 <p>Đảo Hòn Dấu là một quần đảo nằm ngoài biển.</p>
@@ -275,8 +275,8 @@
                                         5
                                     </div>
                                 </div>
-                                <a href="">
-                                    <h4>Đồ Sơn</h4>
+                                <a href="/travel-destination-detail?id=26">
+                                    <h4>Bãi Biển Đồ Sơn</h4>
                                 </a>
                                 <p>Đồ Sơn là một địa điểm du lịch thú vị.</p>
                             </div>

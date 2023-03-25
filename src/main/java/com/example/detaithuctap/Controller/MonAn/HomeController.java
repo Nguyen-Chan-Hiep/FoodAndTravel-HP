@@ -1,5 +1,6 @@
 package com.example.detaithuctap.Controller.MonAn;
 
+import com.example.detaithuctap.Entity.DuLich.address;
 import com.example.detaithuctap.Entity.MonAn.DiaDiemAnUong;
 import com.example.detaithuctap.Entity.MonAn.MonAn;
 import com.example.detaithuctap.Entity.MonAn.NhanXetMonAn;
@@ -9,6 +10,7 @@ import com.example.detaithuctap.Entity.User.NguoiDung;
 import com.example.detaithuctap.Entity.MonAn.Loai_hinh_am_thuc;
 import com.example.detaithuctap.Entity.tintuc.news;
 import com.example.detaithuctap.Service.Comment.NhanXetMonAnService;
+import com.example.detaithuctap.Service.DuLichService.diaDiemService;
 import com.example.detaithuctap.Service.MonAn.DiaDiemAnUongService;
 import com.example.detaithuctap.Service.MonAn.Loai_hinh_am_thucService;
 import com.example.detaithuctap.Service.MonAn.MonAnService;
@@ -33,6 +35,9 @@ import java.util.List;
 
 @Controller
 public class HomeController {
+
+	@Autowired
+	private diaDiemService diaDiemService;
 	
 	@Autowired
 	private NhanXetMonAnService nhanXetMonAnService;
@@ -62,7 +67,13 @@ public class HomeController {
 			noibat.add(list.get(i));
 		}
 		modelAndView.addObject("tintuc", noibat);
-		return modelAndView;
+		List<address> addresses = diaDiemService.findByLHId(4);
+		List<address> addresses1 = new ArrayList<address>();
+		for (int i = 0; i < 3; i++){
+			addresses1.add(addresses.get(i));
+		}
+		modelAndView.addObject("dulich", addresses1);
+ 		return modelAndView;
     }
    
 
