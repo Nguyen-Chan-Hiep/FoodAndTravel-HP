@@ -161,7 +161,7 @@
                                         5
                                     </div>
                                 </div>
-                                <a href="">
+                                <a href="food-detail?id=17">
                                     <h4>Cháo khoái</h4>
                                 </a>
                             </div>
@@ -181,7 +181,7 @@
                                         5
                                     </div>
                                 </div>
-                                <a href="">
+                                <a href="food-detail?id=3">
                                     <h4>Cá mòi kho Kiến Thụy</h4>
                                 </a>
                             </div>
@@ -201,7 +201,7 @@
                                         5
                                     </div>
                                 </div>
-                                <a href="">
+                                <a href="food-detail?id=9">
                                     <h4>Dừa dầm</h4>
                                 </a>
                             </div>
