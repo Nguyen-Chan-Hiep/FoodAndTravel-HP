@@ -100,6 +100,7 @@
         </div>
     </section>
     <!-- Blog Section End -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-long-arrow-up"></i></a>
 
     <!-- Footer Section Begin -->
     <%@ include file="footer.jsp"%>

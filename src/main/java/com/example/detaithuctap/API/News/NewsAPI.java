@@ -20,7 +20,7 @@ public class NewsAPI {
     public String save(@RequestBody news tintuc){
         Timestamp timepost = new Timestamp(System.currentTimeMillis());
         news news1 = new news(tintuc.getTieuDe(), tintuc.getImage(), tintuc.getLoaiHinh()
-        , timepost, tintuc.getNoiDung(), tintuc.getHinhAnhChiTiet());
+        , timepost.toString(), tintuc.getNoiDung(), tintuc.getHinhAnhChiTiet());
         try{
             service.saveorupdate(news1);
             return "sucess";

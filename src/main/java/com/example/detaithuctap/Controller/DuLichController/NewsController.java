@@ -5,7 +5,6 @@ import com.example.detaithuctap.Entity.tintuc.news;
 import com.example.detaithuctap.Service.tintucService.tintucService;
 import com.example.detaithuctap.auth.MyUserDetail;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,7 +15,6 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpSession;
 import java.sql.Timestamp;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -78,7 +76,7 @@ public class NewsController {
                           @RequestParam("image") String image, @RequestParam("loai_hinh") String loaiHinh,
                           @RequestParam("noi_dung") String noiDung, @RequestParam("chi_tiet_hinh_anh") String hinhAnhChiTiet){
         Timestamp timepost = new Timestamp(System.currentTimeMillis());
-        news news1 = new news(tieuDe, image, loaiHinh, timepost, noiDung, hinhAnhChiTiet);
+        news news1 = new news(tieuDe, image, loaiHinh, timepost.toString(), noiDung, hinhAnhChiTiet);
         tintucService.saveorupdate(news1);
     }
 

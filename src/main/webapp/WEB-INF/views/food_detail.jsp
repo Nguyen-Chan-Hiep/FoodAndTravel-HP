@@ -74,39 +74,17 @@
 						<div class="recent-post">
 							<h4>Tin tức nổi bật</h4>
 							<div class="recent-blog">
-								<a href="#" class="rb-item">
+							<c:forEach  var="tin" items="${news}">
+								<a href="/blog-detail?bid=${tin.id}" class="rb-item">
 									<div class="rb-pic">
-										<img src="img/${monan.hinhanh}" alt="">
+										<img src="img/${tin.image}" alt="">
 									</div>
 									<div class="rb-text">
-										<h6>Top địa điểm bán bánh đa cua nổi tiếng</h6>
-										<span>30-02-2023</span>
-									</div>
-								</a> <a href="#" class="rb-item">
-									<div class="rb-pic">
-										<img src="img/${monan.hinhanh}" alt="">
-									</div>
-									<div class="rb-text">
-										<h6>Top địa điểm bán bánh đa cua nổi tiếng</h6>
-										<span>30-02-2023</span>
-									</div>
-								</a> <a href="#" class="rb-item">
-									<div class="rb-pic">
-										<img src="img/${monan.hinhanh}" alt="">
-									</div>
-									<div class="rb-text">
-										<h6>Top địa điểm bán bánh đa cua nổi tiếng</h6>
-										<span>30-02-2023</span>
-									</div>
-								</a> <a href="#" class="rb-item">
-									<div class="rb-pic">
-										<img src="img/${monan.hinhanh }" alt="">
-									</div>
-									<div class="rb-text">
-										<h6>Top địa điểm bán bánh đa cua nổi tiếng</h6>
-										<span>30-02-2023</span>
+										<h6>${tin.tieuDe}</h6>
+										<span>${tin.timnepost}</span>
 									</div>
 								</a>
+						    </c:forEach>
 							</div>
 						</div>
 					</div>

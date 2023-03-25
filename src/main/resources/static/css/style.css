@@ -1566,7 +1566,7 @@ section{
     border-radius: 1rem;
     background: -webkit-gradient(linear, left, top, left bottom, from(rgba(17, 17, 17, 0.7)), 
     to(rgba(17, 17, 17, 0.7))), url(../img//travel//home-bg.jpg) no-repeat;
-    background: linear-gradient(rgba(17,17,17,0.7), rgba(17,17,17,0.7)), url(../img//travel//home-bg.jpg) no-repeat;
+    background: linear-gradient(rgba(17,17,17,0.7), rgba(17,17,17,0.7)), url(../img/travel/home-bg.jpg) no-repeat;
     background-size: cover;
     background-position: center;
     display: -webkit-box;
@@ -2269,7 +2269,7 @@ section{
 	margin-bottom: 10px;
 }
 
-.blog-sidebar .recent-post .recent-blog .rb-item .rb-text p {
+.blog-sidebar .recent-post .recent-blog .rb-item .rb-text span {
 	margin-bottom: 0;
 	font-size: 12px;
 	font-weight: 700;
@@ -2310,7 +2310,6 @@ section{
 
 .blog-item .bi-pic img {
 	min-width: 100%;
-
 }
 
 .blog-item .bi-text {

@@ -36,8 +36,8 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumb-text">
-                        <a href="index.html"><i class="fa fa-home"></i> Home</a>
-                        <a href="blog.html">Tin tức</a>
+                        <a href="/home"><i class="fa fa-home"></i> Home</a>
+                        <a href="/news">Tin tức</a>
                         <span>Chi tiết</span>
                     </div>
                 </div>
@@ -106,6 +106,7 @@
         </div>
     </div>
     <!-- Blog Details Section End -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-long-arrow-up"></i></a>
 
     <%@ include file="footer.jsp"%>
 

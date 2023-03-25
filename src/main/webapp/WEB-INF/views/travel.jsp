@@ -227,6 +227,8 @@
     <!-- blog section end -->
 
 	<%@ include file="footer.jsp"%>
+	<a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-long-arrow-up"></i></a>
+
 </body>
 <script src="js/jquery-3.3.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>

@@ -1,6 +1,7 @@
 package com.example.detaithuctap.Controller.MonAn;
 
 import com.example.detaithuctap.Entity.BaiViet.BaiViet;
+import com.example.detaithuctap.Entity.DuLich.address;
 import com.example.detaithuctap.Entity.MonAn.DiaDiemAnUong;
 import com.example.detaithuctap.Entity.MonAn.MonAn;
 import com.example.detaithuctap.Entity.MonAn.NhanXetMonAn;
@@ -11,10 +12,12 @@ import com.example.detaithuctap.Entity.tintuc.news;
 import com.example.detaithuctap.Entity.MonAn.Loai_hinh_am_thuc;
 import com.example.detaithuctap.Service.BaiViet.BaiVietService;
 import com.example.detaithuctap.Service.Comment.NhanXetMonAnService;
+import com.example.detaithuctap.Service.DuLichService.diaDiemService;
 import com.example.detaithuctap.Service.MonAn.DiaDiemAnUongService;
 import com.example.detaithuctap.Service.MonAn.Loai_hinh_am_thucService;
 import com.example.detaithuctap.Service.MonAn.MonAnService;
 import com.example.detaithuctap.Service.NguoiDung.NguoiDungService;
+import com.example.detaithuctap.Service.tintucService.tintucService;
 import com.example.detaithuctap.auth.MyUserDetail;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -34,12 +37,16 @@ import java.nio.file.StandardCopyOption;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Iterator;
 import java.util.List;
 
 @Controller
 public class HomeController {
+
+	@Autowired
+	private diaDiemService diaDiemService;
 	
 	@Autowired
 	private NhanXetMonAnService nhanXetMonAnService;
@@ -57,12 +64,28 @@ public class HomeController {
     private Loai_hinh_am_thucService loai_hinh_am_thucService;
     
     @Autowired
+    private tintucService tintucService;
+    
+    @Autowired
     private BaiVietService baiVietService;
 
     @GetMapping({"/", "/home"})
-    public String home()
+    public ModelAndView home()
     {
-        return "home";
+        ModelAndView modelAndView = new ModelAndView("home");
+		List<news> list = tintucService.getAll();
+		List<news> noibat = new ArrayList<news>();
+		for (int i = 0; i < 3; i++){
+			noibat.add(list.get(i));
+		}
+		modelAndView.addObject("tintuc", noibat);
+		List<address> addresses = diaDiemService.findByLHId(4);
+		List<address> addresses1 = new ArrayList<address>();
+		for (int i = 0; i < 3; i++){
+			addresses1.add(addresses.get(i));
+		}
+		modelAndView.addObject("dulich", addresses1);
+ 		return modelAndView;
     }
    
 
@@ -90,6 +113,12 @@ public class HomeController {
     	modelAndView.addObject("listL", list);
     	MonAn monAn = monAnService.getById(id);
     	modelAndView.addObject("monan", monAn);
+		String search = "%Ẩm thực%";
+		List<news> noibat = new ArrayList<news>();
+		for (int i = 0; i < tintucService.getAll(search).toArray().length; i++){
+			noibat.add(tintucService.getAll(search).get(i));
+		}
+		modelAndView.addObject("news", noibat);
         return modelAndView;
     }
     
