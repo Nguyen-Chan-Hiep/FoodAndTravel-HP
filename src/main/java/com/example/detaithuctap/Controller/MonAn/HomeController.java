@@ -199,8 +199,10 @@ public class HomeController {
     }
     
     @GetMapping("/account")
-    public ModelAndView test1() {
-    	MyUserDetail myUserDetail = (MyUserDetail) (SecurityContextHolder.getContext()).getAuthentication().getPrincipal();
+    public ModelAndView test1(HttpSession session) {
+    	
+    	MyUserDetail myUserDetail = (MyUserDetail)session.getAttribute("user");
+    	System.out.println("sdfdf");
     	List<BaiViet> list = baiVietService.getList(myUserDetail.getId());
     	ModelAndView modelAndView = new ModelAndView("quanlybaiviet");
     	modelAndView.addObject("listBaiviet", list);
