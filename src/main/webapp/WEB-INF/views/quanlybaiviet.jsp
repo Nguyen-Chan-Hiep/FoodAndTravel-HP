@@ -79,47 +79,47 @@
                                     <table class="align-middle mb-0 table table-borderless table-striped table-hover">
                                         <thead>
                                             <tr>
-                                                <th class="text-center">ID</th>
-                                                <th class="text-center">Hình ảnh</th>
-                                                <th class="text-center">Tên điểm du lịch</th>
-                                                <th class="text-center">Thao tác</th>
-                                            </tr>
+												<th class="text-center">ID</th>
+												<th class="text-center">Hình ảnh</th>
+												<th class="text-center">Tên món ăn</th>
+												<th class="text-center">Tên địa điểm</th>
+												<th class="text-center">Địa chỉ</th>
+												<th class="text-center">Loại hình</th>
+												<th class="text-center">Người đăng</th>
+												<th class="text-center">Thao tác</th>
+											</tr>
                                         </thead>
 
                                         <tbody>
-
-                                            <tr>
-                                                <td class="text-center text-muted">#01</td>
-                                                <td class="text-center">
-                                                    <img style="height: 60px;"
-                                                        data-toggle="tooltip" title="Image"
-                                                        data-placement="bottom"
-                                                        src="assets/images/hondau.jpg" alt="">
-                                                </td>
-                                                <td class="text-center">Hòn Dấu</td>                                               
-                                                <td class="text-center">
-                                                    <a href="./travel-show.html"
-                                                        class="btn btn-hover-shine btn-outline-primary border-0 btn-sm">
-                                                        Chi tiết
-                                                    </a>
-                                                    <a href="./travel-edit.html" data-toggle="tooltip" title="Edit"
-                                                        data-placement="bottom" class="btn btn-outline-warning border-0 btn-sm">
-                                                        <span class="btn-icon-wrapper opacity-8">
-                                                            <i class="fa fa-edit fa-w-20"></i>
-                                                        </span>
-                                                    </a>
-                                                    <form class="d-inline" action="" method="post">
-                                                        <button class="btn btn-hover-shine btn-outline-danger border-0 btn-sm"
-                                                            type="submit" data-toggle="tooltip" title="Delete"
-                                                            data-placement="bottom"
-                                                            onclick="return confirm('Bạn thật sự muốn xóa?')">
-                                                            <span class="btn-icon-wrapper opacity-8">
-                                                                <i class="fa fa-trash fa-w-20"></i>
-                                                            </span>
-                                                        </button>
-                                                    </form>
-                                                </td>
-                                            </tr>
+											
+                                            <c:forEach var="s" items="${listBaiviet }">
+												<tr>
+													<td class="text-center text-muted">${s.id }</td>
+													<td class="text-center"><img style="height: 60px;"
+														data-toggle="tooltip" title="Image"
+														data-placement="bottom" src="img/${s.hinhanh }"
+														alt=""></td>
+													<td class="text-center">${s.name }</td>
+													<td class="text-center">${s.tendiadiem }</td>
+													<td class="text-center">${s.diachi }</td>
+													<td class="text-center">${s.loaihinh }</td>
+													<td class="text-center">${s.idnguoidung }</td>
+													<td class="text-center"><a href="/monan-show?id=${s.id }"
+														class="btn btn-hover-shine btn-outline-primary border-0 btn-sm">
+															Chi tiết </a>
+														<form class="d-inline" action="" method="post">
+															<button
+																class="btn btn-hover-shine btn-outline-danger border-0 btn-sm"
+																type="submit" data-toggle="tooltip" title="Delete"
+																data-placement="bottom"
+																onclick="return confirm('Bạn thật sự muốn xóa?')">
+																<span class="btn-icon-wrapper opacity-8"> <i
+																	class="fa fa-trash fa-w-20"></i>
+																</span>
+															</button>
+														</form></td>
+												</tr>
+											</c:forEach>
 
                                             
                                         </tbody>

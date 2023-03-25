@@ -12,9 +12,10 @@ import java.util.List;
 public class BaiVietRepository implements BaseRepository<BaiViet> {
     @Autowired
     private SessionFactory sessionFactory;
-    @Override
+    @SuppressWarnings("unchecked")
+	@Override
     public List<BaiViet> getAll () {
-        return null;
+        return sessionFactory.getCurrentSession().createQuery("from BaiViet").list();
     }
 
     @Override
@@ -39,4 +40,10 @@ public class BaiVietRepository implements BaseRepository<BaiViet> {
     public BaiViet getByName (String name) {
         return null;
     }
+    
+   @SuppressWarnings("unchecked")
+public List<BaiViet> getList(int id){
+	   return (List<BaiViet>) sessionFactory.getCurrentSession().createNativeQuery("SELECT * FROM bai_viet_cua_nguoi_dung where idnguoidung = :idnguoidung")
+			   .setParameter("idnguoidung", id).list();
+   }
 }

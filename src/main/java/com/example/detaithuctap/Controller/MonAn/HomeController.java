@@ -1,32 +1,40 @@
 package com.example.detaithuctap.Controller.MonAn;
 
+import com.example.detaithuctap.Entity.BaiViet.BaiViet;
 import com.example.detaithuctap.Entity.MonAn.DiaDiemAnUong;
 import com.example.detaithuctap.Entity.MonAn.MonAn;
 import com.example.detaithuctap.Entity.MonAn.NhanXetMonAn;
 import com.example.detaithuctap.Entity.MonAn.monan_diadiemanuong;
 import com.example.detaithuctap.Entity.User.NguoiDung;
+import com.example.detaithuctap.Entity.tintuc.news;
 //import com.example.detaithuctap.Entity.tintuc.news;
 import com.example.detaithuctap.Entity.MonAn.Loai_hinh_am_thuc;
+import com.example.detaithuctap.Service.BaiViet.BaiVietService;
 import com.example.detaithuctap.Service.Comment.NhanXetMonAnService;
 import com.example.detaithuctap.Service.MonAn.DiaDiemAnUongService;
 import com.example.detaithuctap.Service.MonAn.Loai_hinh_am_thucService;
 import com.example.detaithuctap.Service.MonAn.MonAnService;
 import com.example.detaithuctap.Service.NguoiDung.NguoiDungService;
-import com.example.detaithuctap.Service.tintucService.tintucService;
 import com.example.detaithuctap.auth.MyUserDetail;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
 
+import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Iterator;
 import java.util.List;
 
@@ -47,21 +55,14 @@ public class HomeController {
     
     @Autowired
     private Loai_hinh_am_thucService loai_hinh_am_thucService;
-
-	@Autowired
-	private tintucService tintucService;
+    
+    @Autowired
+    private BaiVietService baiVietService;
 
     @GetMapping({"/", "/home"})
-    public ModelAndView home(HttpSession session)
+    public String home()
     {
-        ModelAndView modelAndView = new ModelAndView("home");
-		List<news> list = tintucService.getAll();
-		List<news> noibat = new ArrayList<news>();
-		for (int i = 0; i < 3; i++){
-			noibat.add(list.get(i));
-		}
-		modelAndView.addObject("tintuc", noibat);
-		return modelAndView;
+        return "home";
     }
    
 
@@ -169,20 +170,78 @@ public class HomeController {
     }
     
     @GetMapping("/account")
-    public String test1() {
-    	return "quanlybaiviet";
+    public ModelAndView test1() {
+    	MyUserDetail myUserDetail = (MyUserDetail) (SecurityContextHolder.getContext()).getAuthentication().getPrincipal();
+    	List<BaiViet> list = baiVietService.getList(myUserDetail.getId());
+    	ModelAndView modelAndView = new ModelAndView("quanlybaiviet");
+    	modelAndView.addObject("listBaiviet", list);
+    	return modelAndView;
     }
     
     @GetMapping("/addNew")
-    public String addNew() {
-    	return "addNew";
+    public ModelAndView addNew() {
+    	List<MonAn> list = monAnService.getAll();
+    	ModelAndView modelAndView = new ModelAndView("addNew"); 
+    	modelAndView.addObject("listM", list);
+    	return modelAndView;
     }
     
-    @GetMapping("/userDetail")
-    public String userDetail() {
-    	return "userDetail";
+	@GetMapping("/userDetail")
+    public ModelAndView userDetail(HttpSession session) {
+    	ModelAndView modelAndView = new ModelAndView();
+    	MyUserDetail myUserDetail = (MyUserDetail)session.getAttribute("user");
+    	if(!myUserDetail.getUsername().equals("admin")){
+    		modelAndView.setViewName("userDetail");
+    		return modelAndView;
+    	}
+    	else {
+    		List<BaiViet> list = baiVietService.getAll();
+    		modelAndView.setViewName("FormAdmin");
+    		modelAndView.addObject("listBV", list);
+    		return modelAndView;
+    	}
+    	
+    	
     }
     
-//    @PostMapping("/saveInfomation")
-//    
+    @PostMapping(value = "/saveInfomation")
+    @ResponseBody
+    public String saveInfo(@RequestParam("img")MultipartFile multipartFile, @RequestParam("name")String name,
+    		@RequestParam("diachi")String diachi, @RequestParam("loaihinh")String loaihinh, @RequestParam("dongia")String dongia,
+    		@RequestParam("mota")String mota, @RequestParam("giodong")String giodong, @RequestParam("giomo")String giomo,
+    		@RequestParam("tendiadiem")String tendiadiem, @RequestParam("sdt")String sdt, HttpSession session) {
+    	Path path = Paths.get("src/main/resources/static/img/");
+    	String string = "", string2=multipartFile.getOriginalFilename();
+    	MyUserDetail nguoiDung = (MyUserDetail)session.getAttribute("user");
+		String timePost = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(Calendar.getInstance().getTime());
+		MonAn monAn = monAnService.getById(Integer.parseInt(name));
+		Loai_hinh_am_thuc loai_hinh_am_thuc = loai_hinh_am_thucService.getById(Integer.parseInt(loaihinh));
+		
+		BaiViet baiViet = new BaiViet(monAn.getTenmonan(), tendiadiem,  diachi, string2, mota, loai_hinh_am_thuc.getTen_loai_hinh(), sdt, Double.parseDouble(dongia), giomo, giodong, nguoiDung.getUsername(), timePost); 
+		baiVietService.saveOrUpdate(baiViet);
+    	try {
+			InputStream inputStream = multipartFile.getInputStream();
+			Files.copy(inputStream, path.resolve(multipartFile.getOriginalFilename()), StandardCopyOption.REPLACE_EXISTING);
+			
+			string = "Thông tin của bạn đang được chờ phê duyệt !";
+    	} catch (Exception e) {
+			string = "Có lỗi xảy ra trong khi gửi thông tin chờ phê duyệt !";
+		}
+    	
+    	return string;
+    }
+    
+      @GetMapping("/monan-show")
+      public ModelAndView travel_show(@RequestParam("id")int id) {
+    	  BaiViet baiViet = baiVietService.getById(id);
+    	  ModelAndView modelAndView = new ModelAndView("monan-show");
+    	  modelAndView.addObject("baiviet",baiViet );
+    	  return modelAndView;
+      }
+      
+      @GetMapping("/pheduyet")
+      public String pheduyet(@RequestParam("id")int id) {
+    	  baiVietService.delete(id);
+    	  return "redirect:/userDetail";
+      }
 }

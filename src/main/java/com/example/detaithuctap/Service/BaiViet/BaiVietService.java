@@ -17,7 +17,7 @@ public class BaiVietService implements BaseService<BaiViet> {
     private BaiVietRepository baiVietRepository;
     @Override
     public List<BaiViet> getAll () {
-        return null;
+        return baiVietRepository.getAll();
     }
 
     @Override
@@ -39,5 +39,9 @@ public class BaiVietService implements BaseService<BaiViet> {
     @Override
     public BaiViet getByName (String name) {
         return null;
+    }
+    
+    public List<BaiViet> getList(int id){
+    	return baiVietRepository.getList(id);
     }
 }

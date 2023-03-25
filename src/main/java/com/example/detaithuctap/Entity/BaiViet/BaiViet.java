@@ -1,13 +1,7 @@
 package com.example.detaithuctap.Entity.BaiViet;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
-//@Data
-//@AllArgsConstructor
-//@NoArgsConstructor
 @Entity
 @Table(name = "bai_viet_cho_phe_duyet")
 public class BaiViet {
@@ -26,7 +20,7 @@ public class BaiViet {
     private String hinhanh;
     @Column(name = "motadiadiem")
     private String motadiadiem;
-    @Column(name = "loaihinh")
+    @Column(name = "loahinh")
     private String loaihinh;
     @Column(name = "sdt")
     private String sdt;
@@ -37,11 +31,11 @@ public class BaiViet {
     @Column(name = "giodongcua")
     private String giodongcua;
     @Column(name = "idnguoidung")
-    private int idnguoidung;
+    private String idnguoidung;
     @Column(name = "thoigianpost")
     private String thoigianpost;
 	public BaiViet(String name, String tendiadiem, String diachi, String hinhanh, String motadiadiem, String loaihinh,
-			String sdt, Double gia, String giomocua, String giodongcua, int idnguoidung, String thoigianpost) {
+			String sdt, Double gia, String giomocua, String giodongcua, String idnguoidung, String thoigianpost) {
 		super();
 		this.name = name;
 		this.tendiadiem = tendiadiem;
@@ -125,10 +119,10 @@ public class BaiViet {
 	public void setGiodongcua(String giodongcua) {
 		this.giodongcua = giodongcua;
 	}
-	public int getIdnguoidung() {
+	public String getIdnguoidung() {
 		return idnguoidung;
 	}
-	public void setIdnguoidung(int idnguoidung) {
+	public void setIdnguoidung(String idnguoidung) {
 		this.idnguoidung = idnguoidung;
 	}
 	public String getThoigianpost() {

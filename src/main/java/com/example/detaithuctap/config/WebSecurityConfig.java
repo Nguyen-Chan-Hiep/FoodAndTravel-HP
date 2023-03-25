@@ -34,6 +34,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
 
         http.csrf().disable().cors().disable();
+        http.authorizeRequests().antMatchers("/admin/**").access("hasAuthority('ADMIN')");
+        
         http.authorizeRequests ().antMatchers ("/", "/home", "/food", "/food-detail", "/news", "/contact", "/blog-detail", "/searchnews", "/travel", "/travel-destination", "/travel-destination-detail", "/travel-hotel", "/travel-tour").permitAll ()
                 .anyRequest ().authenticated ()
                 .and ().formLogin ()
@@ -45,7 +47,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure (WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/js/**", "/addressimg/**", "/detailimg/**", "/css/**", "/img/**", "/fonts/**", "/error", "/list-mon-an-theo-loai-hinh/**");
+        web.ignoring().antMatchers("/js/**", "/saveInfomation","/addressimg/**", "/detailimg/**", "/css/**", "/img/**", "/fonts/**", "/error", "/list-mon-an-theo-loai-hinh/**");
 
     }
 

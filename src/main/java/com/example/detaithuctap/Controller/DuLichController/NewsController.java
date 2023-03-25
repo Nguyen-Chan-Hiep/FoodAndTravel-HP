@@ -1,23 +1,4 @@
-<<<<<<< HEAD
-//package com.example.detaithuctap.Controller.DuLichController;
-//
-//import org.springframework.stereotype.Controller;
-//import org.springframework.web.bind.annotation.GetMapping;
-//
-//import javax.servlet.http.HttpSession;
-//
-//@Controller
-//public class NewsController {
-//    @GetMapping("/contact")
-//    public String contactHome(HttpSession session){
-//        return "contact";
-//    }
-//    @GetMapping("/news")
-//    public String newsHome(HttpSession session){
-//        return "blog";
-//    }
-//}
-=======
+
 package com.example.detaithuctap.Controller.DuLichController;
 
 import com.example.detaithuctap.Entity.tintuc.news;
@@ -102,4 +83,3 @@ public class NewsController {
     }
 
 }
->>>>>>> ea30e2cfb04152c2a3b90584e338d6d916f329ce
