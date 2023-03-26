@@ -44,4 +44,8 @@ public class BaiVietService implements BaseService<BaiViet> {
     public List<BaiViet> getList(int id){
     	return baiVietRepository.getList(id);
     }
+
+    public void themBaiViet(BaiViet baiViet){
+        baiVietRepository.themBaiViet(baiViet);
+    }
 }

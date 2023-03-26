@@ -31,11 +31,11 @@ public class BaiViet {
     @Column(name = "giodongcua")
     private String giodongcua;
     @Column(name = "idnguoidung")
-    private String idnguoidung;
+    private int idnguoidung;
     @Column(name = "thoigianpost")
     private String thoigianpost;
 	public BaiViet(String name, String tendiadiem, String diachi, String hinhanh, String motadiadiem, String loaihinh,
-			String sdt, Double gia, String giomocua, String giodongcua, String idnguoidung, String thoigianpost) {
+			String sdt, Double gia, String giomocua, String giodongcua, int idnguoidung, String thoigianpost) {
 		super();
 		this.name = name;
 		this.tendiadiem = tendiadiem;
@@ -119,10 +119,10 @@ public class BaiViet {
 	public void setGiodongcua(String giodongcua) {
 		this.giodongcua = giodongcua;
 	}
-	public String getIdnguoidung() {
+	public int getIdnguoidung() {
 		return idnguoidung;
 	}
-	public void setIdnguoidung(String idnguoidung) {
+	public void setIdnguoidung(int idnguoidung) {
 		this.idnguoidung = idnguoidung;
 	}
 	public String getThoigianpost() {

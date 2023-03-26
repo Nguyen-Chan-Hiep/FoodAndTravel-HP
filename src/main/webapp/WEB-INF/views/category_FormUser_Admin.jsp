@@ -50,12 +50,16 @@
 							class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
 					</a>
 						<ul>
+						    <li><a href="/home"> <i class="metismenu-icon"></i>
+						            Về trang chủ
+						    </a></li>
 							<li><a href="account"> <i class="metismenu-icon"></i>
 									Quản lý bài viết
 							</a></li>
 							<li><a href="userDetail" class="mm-active"> <i
 									class="metismenu-icon"></i>Thông tin cá nhân
 							</a></li>
+
 						</ul></li>
 				</ul>
 			</div>

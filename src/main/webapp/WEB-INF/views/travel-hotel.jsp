@@ -51,8 +51,8 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumb-text">
-                        <a href="index.html"><i class="fa fa-home"></i> Home</a>
-                        <a href="food.html">Du lịch</a>
+                        <a href="/home"><i class="fa fa-home"></i> Home</a>
+                        <a href="/travel">Du lịch</a>
                         <span>Tour du lịch</span>
                     </div>
                 </div>
