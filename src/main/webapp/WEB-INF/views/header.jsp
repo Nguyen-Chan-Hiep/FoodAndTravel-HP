@@ -11,6 +11,7 @@
 </head>
 <body>
     <!-- Start coding here -->
+    <c:set var="pagina" value="${requestScope['javax.servlet.forward.request_uri']}" />
     <div id="preloder">
         <div class="loader"></div>
     </div>
@@ -84,11 +85,11 @@
                 </div>
                 <nav class="nav-menu mobile-menu">
                     <ul>
-                        <li class="active"><a href="/home">Trang chủ</a></li>
-                        <li><a href="/food">Ẩm thực</a></li>
-                        <li><a href="/travel">Du lịch</a></li>
-                        <li><a href="/news">Tin tức</a></li>
-                        <li><a href="/contact">Liên hệ</a></li>
+                        <li class="${pagina.endsWith('/home') ? 'active' : ''}"><a href="/home">Trang chủ</a></li>
+                        <li class="${pagina.endsWith('/food') ? 'active' : ''}"><a href="/food">Ẩm thực</a></li>
+                        <li class="${pagina.endsWith('/travel') ? 'active' : ''}"><a href="/travel">Du lịch</a></li>
+                        <li class="${pagina.endsWith('/news') ? 'active' : ''}"><a href="/news">Tin tức</a></li>
+                        <li class="${pagina.endsWith('/contact') ? 'active' : ''}"><a href="/contact">Liên hệ</a></li>
                     </ul>
                 </nav>
                 <div id="mobile-menu-wrap"></div>
