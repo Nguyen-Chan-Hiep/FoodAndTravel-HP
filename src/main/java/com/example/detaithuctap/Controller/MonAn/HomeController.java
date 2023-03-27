@@ -204,6 +204,7 @@ public class HomeController {
     	MyUserDetail myUserDetail = (MyUserDetail)session.getAttribute("user");
     	System.out.println("sdfdf");
     	List<BaiViet> list = baiVietService.getList(myUserDetail.getId());
+		System.out.println(myUserDetail.getId() + " " +list);
     	ModelAndView modelAndView = new ModelAndView("quanlybaiviet");
     	modelAndView.addObject("listBaiviet", list);
     	return modelAndView;
@@ -248,7 +249,7 @@ public class HomeController {
 		MonAn monAn = monAnService.getById(Integer.parseInt(name));
 		Loai_hinh_am_thuc loai_hinh_am_thuc = loai_hinh_am_thucService.getById(Integer.parseInt(loaihinh));
 		
-		BaiViet baiViet = new BaiViet(monAn.getTenmonan(), tendiadiem,  diachi, string2, mota, loai_hinh_am_thuc.getTen_loai_hinh(), sdt, Double.parseDouble(dongia), giomo, giodong, nguoiDung.getUsername(), timePost); 
+		BaiViet baiViet = new BaiViet(monAn.getTenmonan(), tendiadiem,  diachi, string2, mota, loai_hinh_am_thuc.getTen_loai_hinh(), sdt, Double.parseDouble(dongia), giomo, giodong, nguoiDung.getId(), timePost);
 		baiVietService.saveOrUpdate(baiViet);
     	try {
 			InputStream inputStream = multipartFile.getInputStream();
@@ -272,6 +273,8 @@ public class HomeController {
       
       @GetMapping("/pheduyet")
       public String pheduyet(@RequestParam("id")int id) {
+		BaiViet baiViet = baiVietService.getById(id);
+		baiVietService.themBaiViet(baiViet);
     	  baiVietService.delete(id);
     	  return "redirect:/userDetail";
       }

@@ -293,6 +293,19 @@ imgBtn.forEach(btn => {
 
 // Back to top button
 $(window).scroll(function () {
+    let mtop = $(".header-section").height() - $(this).scrollTop();
+    if(mtop > 0){
+        $(".nav-item").css({'top': mtop});
+    }else{
+        $(".nav-item").css({'top': 0});
+    }
+    // if ($(this).scrollTop() > 130) {
+    //     $(".header-top").css("display", "none");
+    //     $(".inner-header").css("display", "none");
+    // } else {
+    //     $(".header-top").css("display", "flex");
+    //     $(".inner-header").css("display", "block");
+    // }
     if ($(this).scrollTop() > 300) {
         $('.back-to-top').fadeIn('slow');
     } else {

@@ -36,29 +36,36 @@
             <div class="container">
                 <div class="row">
                     <div class="hero-items owl-carousel">
-                        <div class="single-hero-items set-bg" data-setbg="img/doson.jpg">
-                            <h3>Đồ Sơn</h3>
+                        <div class="single-hero-items">
+                            <img src="img/doson.jpg" alt="">
+                            <div class="overlay">
+                                <h3 id="title">Đồ Sơn</h3>
+                            </div>
                         </div>
-                        <div class="single-hero-items set-bg" data-setbg="img/daocatba.jpg">
-                            <h3>Đảo Cát Bà</h3>
+                        <div class="single-hero-items">
+                            <img src="img/banhdacuaHP.jpg" alt="">
+                            <div class="overlay">
+                                <h3 id="title">Bánh Đa Cua</h3>
+                            </div>
                         </div>
-                        <div class="single-hero-items set-bg" data-setbg="img/daohondau.jpg">
-                            <h3>Đảo Hòn Dấu</h3>
+                        <div class="single-hero-items">
+                            <img src="img/buncacay.jpg" alt="">
+                            <div class="overlay">
+                                <h3 id="title">Bún Cá Cay</h3>
+                            </div>
                         </div>
-                        <div class="single-hero-items set-bg" data-setbg="img/banhdacuaHP.jpg">
-                            <h3>Bánh Đa Cua</h3>
-                        </div>
-                        <div class="single-hero-items set-bg" data-setbg="img/buncacay.jpg">
-                            <h3>Bún Cá Cay</h3>
-                        </div>
-                        <div class="single-hero-items set-bg" data-setbg="img/banhmycay.jpg">
-                            <h3>Bánh Mỳ Cay</h3>
+                        <div class="single-hero-items">
+                            <img src="img/daocatba.jpg" alt="">
+                            <div class="overlay">
+                                <h3 id="title">Đảo Cát Bà</h3>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <!-- Hero Section End -->
+
 <!-- About Section Begin -->
     <section class="about">
         <h2 class="heading-about">KHÁM PHÁ HẢI PHÒNG</h2>
@@ -233,10 +240,10 @@
                                         3
                                     </div>
                                 </div>
-                                <a href="">
-                                    <h4>Đảo Cát Bà</h4>
+                                <a href="/travel-destination-detail?id=28">
+                                    <h4>Chuỗi Bãi Biển Cát Cò</h4>
                                 </a>
-                                <p>Đảo cát bà là một địa điểm du lịch nổi tiếng của Hải Phòng</p>
+                                <p>Chuỗi bãi biển Cát Cò nằm ở Cát Bà - một địa điểm du lịch nổi tiếng của Hải Phòng</p>
                             </div>
                         </div>
                     </div>
@@ -254,7 +261,7 @@
                                         5
                                     </div>
                                 </div>
-                                <a href="">
+                                <a href="/travel-destination-detail?id=32">
                                     <h4>Đảo Hòn Dấu</h4>
                                 </a>
                                 <p>Đảo Hòn Dấu là một quần đảo nằm ngoài biển.</p>
@@ -275,7 +282,7 @@
                                         5
                                     </div>
                                 </div>
-                                <a href="">
+                                <a href="/travel-destination-detail?id=26">
                                     <h4>Đồ Sơn</h4>
                                 </a>
                                 <p>Đồ Sơn là một địa điểm du lịch thú vị.</p>
