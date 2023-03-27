@@ -199,10 +199,10 @@ public class HomeController {
     }
     
     @GetMapping("/account")
-    public ModelAndView test1() {
-    	MyUserDetail myUserDetail = (MyUserDetail) (SecurityContextHolder.getContext()).getAuthentication().getPrincipal();
+    public ModelAndView test1(HttpSession session) {
+    	
+    	MyUserDetail myUserDetail = (MyUserDetail)session.getAttribute("user");
     	List<BaiViet> list = baiVietService.getList(myUserDetail.getId());
-		System.out.println(myUserDetail.getId() + " " +list);
     	ModelAndView modelAndView = new ModelAndView("quanlybaiviet");
     	modelAndView.addObject("listBaiviet", list);
     	return modelAndView;
@@ -271,8 +271,6 @@ public class HomeController {
       
       @GetMapping("/pheduyet")
       public String pheduyet(@RequestParam("id")int id) {
-		BaiViet baiViet = baiVietService.getById(id);
-		baiVietService.themBaiViet(baiViet);
     	  baiVietService.delete(id);
     	  return "redirect:/userDetail";
       }
