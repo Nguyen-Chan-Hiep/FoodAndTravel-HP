@@ -52,7 +52,7 @@ public class BaiVietRepository implements BaseRepository<BaiViet> {
 
     @Override
     public BaiViet getById (int id) {
-        return (BaiViet) sessionFactory.getCurrentSession ().createQuery ("from BaiViet where id = :id")
+        return (BaiViet) sessionFactory.getCurrentSession ().createNativeQuery ("select * from bai_viet_cua_nguoi_dung where id = :id")
                 .setParameter ("id", id).getSingleResult ();
     }
 
@@ -63,8 +63,8 @@ public class BaiVietRepository implements BaseRepository<BaiViet> {
     
 
     public List<BaiViet> getList(int id){
-	   List<BaiViet> list = sessionFactory.getCurrentSession().createNativeQuery("SELECT * FROM bai_viet_cua_nguoi_dung where idnguoidung = 4", BaiViet.class)
-			   .getResultList();
+	   List<BaiViet> list = sessionFactory.getCurrentSession().createNativeQuery("SELECT * FROM bai_viet_cua_nguoi_dung where idnguoidung = :id", BaiViet.class)
+			   .setParameter("id", id) .getResultList();
        return list;
    }
 }

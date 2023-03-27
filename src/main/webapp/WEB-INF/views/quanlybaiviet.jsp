@@ -86,7 +86,6 @@
 												<th class="text-center">Địa chỉ</th>
 												<th class="text-center">Loại hình</th>
 												<th class="text-center">Người đăng</th>
-												<th class="text-center">Thao tác</th>
 											</tr>
                                         </thead>
 
@@ -104,20 +103,6 @@
 													<td class="text-center">${s.diachi }</td>
 													<td class="text-center">${s.loaihinh }</td>
 													<td class="text-center">${s.idnguoidung }</td>
-													<td class="text-center"><a href="/monan-show?id=${s.id }"
-														class="btn btn-hover-shine btn-outline-primary border-0 btn-sm">
-															Chi tiết </a>
-														<form class="d-inline" action="" method="post">
-															<button
-																class="btn btn-hover-shine btn-outline-danger border-0 btn-sm"
-																type="submit" data-toggle="tooltip" title="Delete"
-																data-placement="bottom"
-																onclick="return confirm('Bạn thật sự muốn xóa?')">
-																<span class="btn-icon-wrapper opacity-8"> <i
-																	class="fa fa-trash fa-w-20"></i>
-																</span>
-															</button>
-														</form></td>
 												</tr>
 											</c:forEach>
 
