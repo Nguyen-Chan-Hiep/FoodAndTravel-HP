@@ -62,4 +62,8 @@ public class MonAnService implements BaseService<MonAn> {
     public void save(monan_diadiemanuong monan_diadiemanuong) {
     	monAnRepository.save(monan_diadiemanuong);
     }
+
+    public List<MonAn> search(String search){
+        return monAnRepository.search(search);
+    }
 }

@@ -17,6 +17,13 @@ public class HotelReponse implements BaseRepository<hotel> {
         return list;
     }
 
+    public List<hotel> searchAll(String search){
+        List<hotel> list = sessionFactory.getCurrentSession().createNativeQuery("select * from" +
+                        " hotel where dia_chi like :search or hotel_name like :search1", hotel.class)
+                .setParameter("search", search).setParameter("search1", search).list();
+        return list;
+    }
+
     @Override
     public void saveOrUpdate(hotel hotel) {
 

@@ -89,22 +89,41 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="leave-comment">
-                            <h4>Bình luận</h4>
-                            <form action="#" class="comment-form">
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <textarea placeholder="Nhập bình luận"></textarea>
-                                        <button type="submit" class="site-btn">Gửi bình luận</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+            <div class="container">
+                <div class="customer-review-option">
+                    <h4>${slCmt} Lượt đánh giá</h4>
+                    <div class="comment-option">
+                    <c:forEach var="comment" items="${listComment}">
+                        <div class="co-item">
+                            <div class="avatar-pic">
+                                <img src="img/user/default-user.png" alt="">
+                            </div>
+                            <div class="avatar-text">
+                                <h5>${comment.userName} <span>${comment.timePost}</span></h5>
+                                <div class="at-reply">${comment.content}</div>
+                            </div>
+                        </div>
+                    </c:forEach>
+                    </div>
+                    <div class="leave-comment">
+                        <h4>Bình luận</h4>
+                        <form action="/news-comment" class="comment-form" method="post">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <textarea name = "idNews" value="${tintuc.id}" hidden>${tintuc.id}</textarea>
+                                    <textarea name = "content" placeholder="Nhập bình luận của bạn"></textarea>
+                                    <button type="submit" class="site-btn">Gửi bình luận</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
     <!-- Blog Details Section End -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-long-arrow-up"></i></a>
 

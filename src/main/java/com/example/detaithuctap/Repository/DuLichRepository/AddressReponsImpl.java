@@ -59,9 +59,14 @@ public class AddressReponsImpl implements BaseRepository<address> {
     }
 
     public List<address> search(@Param("search")String search){
-        List<address> listAdd = sessionFactory.getCurrentSession().createNativeQuery("select * from address_travel where ten_dia_diem like :search", address.class).
-                setParameter("search", search).list();
-        return listAdd;
+        try{
+            List<address> listAdd = sessionFactory.getCurrentSession().createNativeQuery("select * from address_travel where ten_dia_diem like :search", address.class).
+                    setParameter("search", search).list();
+            return listAdd;
+        } catch (Exception e){
+            return null;
+        }
+
     }
     @Override
     public address getByName(String name) {

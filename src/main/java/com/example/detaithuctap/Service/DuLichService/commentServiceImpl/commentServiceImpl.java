@@ -1,21 +1,29 @@
 package com.example.detaithuctap.Service.DuLichService.commentServiceImpl;
 
 import com.example.detaithuctap.Entity.DuLich.commentaAddress;
+import com.example.detaithuctap.Entity.User.NguoiDung;
 import com.example.detaithuctap.Repository.DuLichRepository.CommentReponsImpl;
+import com.example.detaithuctap.Repository.NguoiDung.NguoiDungRepository;
 import com.example.detaithuctap.Service.DuLichService.commentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.List;
 @Service
 @Transactional
 public class commentServiceImpl implements commentService {
+
+    @Autowired
+    private NguoiDungRepository nguoiDungRepository;
     @Autowired
     private CommentReponsImpl reponsitory;
     @Override
     public List<commentaAddress> loadByIdAddress(int idAddress) {
-        return reponsitory.findByIdAddress(idAddress);
+        List<commentaAddress> commentaAddressList = reponsitory.findByIdAddress(idAddress);
+
+        return commentaAddressList;
     }
 
     @Override

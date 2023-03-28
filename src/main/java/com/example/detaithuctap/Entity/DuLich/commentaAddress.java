@@ -1,8 +1,9 @@
 
 package com.example.detaithuctap.Entity.DuLich;
 
+import com.example.detaithuctap.Entity.User.NguoiDung;
+
 import javax.persistence.*;
-import java.util.Date;
 
 @Entity
 @Table(name = "commentdiadiemdulich")
@@ -14,28 +15,42 @@ public class commentaAddress {
     @Column(name = "noidung")
     private String noidung;
     @Column(name = "thoigianpost")
-    private Date timePost;
+    private String timePost;
     @Column(name = "id_user")
     private int idUser;
+    @Column(name = "user_name")
+    private String userName;
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
     @Column(name = "id_address")
     private int idAddress;
 
-    public commentaAddress(String noidung, Date timePost, int idUser, int idAddress) {
+
+    public commentaAddress(String noidung, String timePost, int idUser, int idAddress, String userName) {
         this.noidung = noidung;
         this.timePost = timePost;
         this.idUser = idUser;
         this.idAddress = idAddress;
+        this.userName = userName;
     }
 
     public commentaAddress() {
     }
 
-    public commentaAddress(int id, String noidung, Date timePost, int idUser, int idAddress) {
+    public commentaAddress(int id, String noidung, String timePost, int idUser, int idAddress, String userName) {
         this.id = id;
         this.noidung = noidung;
         this.timePost = timePost;
         this.idUser = idUser;
         this.idAddress = idAddress;
+        this.userName = userName;
     }
 
     public int getId() {
@@ -54,11 +69,11 @@ public class commentaAddress {
         this.noidung = noidung;
     }
 
-    public Date getTimePost() {
+    public String getTimePost() {
         return timePost;
     }
 
-    public void setTimePost(Date timePost) {
+    public void setTimePost(String timePost) {
         this.timePost = timePost;
     }
 

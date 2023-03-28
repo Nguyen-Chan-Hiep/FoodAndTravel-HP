@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface TravelTourService {
     List<travel_tour> getAll();
+    List<travel_tour> searchAll(String search, String date, int ngay);
 }

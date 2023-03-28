@@ -12,7 +12,7 @@ import java.util.List;
 public class BaiVietRepository implements BaseRepository<BaiViet> {
     @Autowired
     private SessionFactory sessionFactory;
-    @SuppressWarnings("unchecked")
+
 	@Override
     public List<BaiViet> getAll () {
         return sessionFactory.getCurrentSession().createQuery("from BaiViet").list();

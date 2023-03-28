@@ -18,4 +18,11 @@ public class HotelServiceImpl implements HotelService {
     public List<hotel> getAll() {
         return hotelReponse.getAll();
     }
+
+    @Override
+    public List<hotel> searchAll(String search) {
+        search = "%" + search + "%";
+        List<hotel> list = hotelReponse.searchAll(search);
+        return list;
+    }
 }

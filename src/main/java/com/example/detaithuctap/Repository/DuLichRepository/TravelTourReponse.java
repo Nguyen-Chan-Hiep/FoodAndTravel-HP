@@ -13,7 +13,15 @@ public class TravelTourReponse implements BaseRepository<travel_tour> {
     private SessionFactory sessionFactory;
     @Override
     public List<travel_tour> getAll() {
-        List<travel_tour> list = sessionFactory.getCurrentSession().createNativeQuery("select * from travel_tour", travel_tour.class).list();
+        List<travel_tour> list = sessionFactory.getCurrentSession().createNativeQuery("select * from travel_tour",
+                travel_tour.class).list();
+        return list;
+    }
+
+    public List<travel_tour> searchAll(String search, String date, int ngay){
+        List<travel_tour> list = sessionFactory.getCurrentSession().createNativeQuery("select * from" +
+                " travel_tour where dia_diem like :search", travel_tour.class)
+                .setParameter("search", search).list();
         return list;
     }
 

@@ -62,18 +62,18 @@
         <!-- Find Section Begin -->
 
         <section class="find-form" id="find-form">
-            <form action="#">
+            <form action="/find-tour">
                 <div class="inputBox">
                     <span>Bạn dự định đi đâu ?</span>
-                    <input type="text" placeholder="Địa điểm">
+                    <input type="text" name="search" placeholder="Địa điểm">
                 </div>
                 <div class="inputBox">
                     <span>Ngày khởi hành ?</span>
-                    <input type="date">
+                    <input type="date" name="date">
                 </div>
                 <div class="inputBox">
-                    <span>Bao nhiêu thành viên ?</span>
-                    <input type="number" placeholder="0">
+                    <span>Bao nhiêu ngày ?</span>
+                    <input name="ngay" type="number" placeholder="0">
                 </div>
 
                 <input type="submit" value="Tìm kiếm" class="find-btn">

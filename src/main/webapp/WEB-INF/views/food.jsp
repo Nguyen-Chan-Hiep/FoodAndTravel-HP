@@ -67,19 +67,25 @@
                     <div class="row">
                         <div class="col-lg-3 col-md-3">
                             <div class="logo">
-                                <a href="/home">
+                                <a href="index.html">
                                     <img src="img/logo.png" height="50" alt="">
                                 </a>
                             </div>
                         </div>
                         <div class="col-lg-7 col-md-7">
+                        <form action="/search-all">
                             <div class="advanced-search">
-                                <button type="button" class="category-btn">Danh mục</button>
+                                <!-- <button type="button" class="category-btn">Danh mục</button> -->
+                                <select name="catagory" class="category-btn">
+                                    <option value="1">Du lịch</option>
+                                    <option value="2">Ẩm thực</option>
+                                  </select>
                                 <div class="input-group">
                                     <input name="search" type="text" placeholder="Bạn cần tìm kiếm?">
-                                    <button type="button"><i class="ti-search"></i></button>
+                                    <button type="submit"><i class="ti-search"></i></button>
                                 </div>
                             </div>
+                        </form>
                         </div>
                     </div>
                 </div>

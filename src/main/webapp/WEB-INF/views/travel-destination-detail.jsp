@@ -139,62 +139,27 @@
 
             <div class="container">
                 <div class="customer-review-option">
-                    <h4>2 Lượt đánh giá</h4>
+                    <h4>${slCmt} Lượt đánh giá</h4>
                     <div class="comment-option">
+                    <c:forEach var="comment" items="${listComment}">
                         <div class="co-item">
                             <div class="avatar-pic">
                                 <img src="img/user/default-user.png" alt="">
                             </div>
                             <div class="avatar-text">
-                                <div class="at-rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star-o"></i>
-                                </div>
-                                <h5>Hải Yến <span>28/02/2022</span></h5>
-                                <div class="at-reply">Cát Bà thật là một nơi nghỉ mát lý tưởng.</div>
+                                <h5>${comment.userName} <span>${comment.timePost}</span></h5>
+                                <div class="at-reply">${comment.noidung}</div>
                             </div>
                         </div>
-                        <div class="co-item">
-                            <div class="avatar-pic">
-                                <img src="img/user/default-user.png" alt="">
-                            </div>
-                            <div class="avatar-text">
-                                <div class="at-rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star-o"></i>
-                                </div>
-                                <h5>Tiến Đạt <span>28/02/2022</span></h5>
-                                <div class="at-reply">Đồ ăn ngon!</div>
-                            </div>
-                        </div>
+                    </c:forEach>
                     </div>
                     <div class="leave-comment">
                         <h4>Bình luận</h4>
-                        <form action="" class="comment-form">
+                        <form action="/travel-comment" class="comment-form" method="post">
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <textarea placeholder="Nhập bình luận của bạn"></textarea>
-                                    <div class="personal-rating">
-                                        <h6>Đánh giá của bạn</h6>
-                                        <div class="rate">
-                                            <input type="radio" id="star5" name="rating" value="5" />
-                                            <label for="star5" title="text">5 stars</label>
-                                            <input type="radio" id="star4" name="rating" value="4" />
-                                            <label for="star4" title="text">4 stars</label>
-                                            <input type="radio" id="star3" name="rating" value="3" />
-                                            <label for="star3" title="text">3 stars</label>
-                                            <input type="radio" id="star2" name="rating" value="2" />
-                                            <label for="star2" title="text">2 stars</label>
-                                            <input type="radio" id="star1" name="rating" value="1" />
-                                            <label for="star1" title="text">1 star</label>
-                                        </div>
-                                    </div>
+                                    <textarea name = "idaddress" value="${address.id}" hidden>${address.id}</textarea>
+                                    <textarea name = "content" placeholder="Nhập bình luận của bạn"></textarea>
                                     <button type="submit" class="site-btn">Gửi bình luận</button>
                                 </div>
                             </div>

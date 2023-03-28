@@ -83,4 +83,15 @@ public class MonAnRepository implements BaseRepository<MonAn> {
     	sessionFactory.getCurrentSession().saveOrUpdate(monan_diadiemanuong);
     }
 
+    public List<MonAn> search(String search){
+        try{
+            search = "%" + search + "%";
+            List<MonAn> list = sessionFactory.getCurrentSession().createQuery("from monan_diadiemanuong" +
+                    " where tenmonan like :search").setParameter("search", search).list();
+            return list;
+        } catch (Exception e){
+            return null;
+        }
+
+    }
 }

@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface HotelService {
     List<hotel> getAll();
+
+    List<hotel> searchAll(String search);
 }

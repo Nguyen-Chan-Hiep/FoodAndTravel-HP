@@ -64,10 +64,10 @@
     <!-- Find Section Begin -->
 
     <section class="find-form" id="find-form">
-        <form action="#">
+        <form action="/find-hotel">
             <div class="inputBox">
                 <span>Bạn dự định đi đâu ?</span>
-                <input type="text" placeholder="Địa điểm">
+                <input type="text" name = "search" placeholder="Địa điểm">
             </div>
             <div class="inputBox">
                 <span>Ngày khởi hành ?</span>
@@ -112,9 +112,7 @@
                 </div>
             </c:forEach>
             </div>
-            <div class="loading-more">
-                <a href="#" class="primary-btn ">Xem thêm</a>
-            </div>
+
         </div>
     </div>
     <!-- Hotel Section End -->

@@ -18,4 +18,10 @@ public class TravelTourServiceImpl implements TravelTourService {
     public List<travel_tour> getAll() {
         return travelTourReponse.getAll();
     }
+
+    @Override
+    public List<travel_tour> searchAll(String search, String date, int ngay) {
+        List<travel_tour> list = travelTourReponse.searchAll(search, date, ngay);
+        return list;
+    }
 }

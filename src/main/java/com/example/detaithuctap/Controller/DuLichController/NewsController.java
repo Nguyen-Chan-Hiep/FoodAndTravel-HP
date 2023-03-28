@@ -1,7 +1,9 @@
 
 package com.example.detaithuctap.Controller.DuLichController;
 
+import com.example.detaithuctap.Entity.tintuc.NewsComment;
 import com.example.detaithuctap.Entity.tintuc.news;
+import com.example.detaithuctap.Service.tintucService.NewsCommentService;
 import com.example.detaithuctap.Service.tintucService.tintucService;
 import com.example.detaithuctap.auth.MyUserDetail;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +23,8 @@ import java.util.List;
 public class NewsController {
     @Autowired
     private tintucService tintucService;
+    @Autowired
+    private NewsCommentService commentService;
     @GetMapping("/contact")
     public String contactHome(HttpSession session){
         return "contact";
@@ -69,6 +73,10 @@ public class NewsController {
             listImg.add(w);
         }
         modelAndView.addObject("listImg", listImg);
+        List<NewsComment> listComment = commentService.getAllByNewsId(bid);
+        int slCmt = listComment.size();
+        modelAndView.addObject("listComment", listComment);
+        modelAndView.addObject("slCmt", slCmt);
         return modelAndView;
     }
     @PostMapping("/saveNews")
@@ -80,4 +88,17 @@ public class NewsController {
         tintucService.saveorupdate(news1);
     }
 
+    @PostMapping("/news-comment")
+    public String saveComment(HttpSession session, @RequestParam("idNews") String newsId, @RequestParam("content") String content){
+        try{
+            Timestamp timepost = new Timestamp(System.currentTimeMillis());
+            MyUserDetail myUserDetail = (MyUserDetail) (SecurityContextHolder.getContext()).getAuthentication().getPrincipal();
+            NewsComment newsComment = new NewsComment(content, timepost.toString(), myUserDetail.getId(), Integer.parseInt(newsId), myUserDetail.getUsername());
+            commentService.saveComment(newsComment);
+            String url = "redirect:/blog-detail?bid=" + newsId;
+            return url;
+        } catch (Exception e){
+            return "redirect:/login";
+        }
+    }
 }
