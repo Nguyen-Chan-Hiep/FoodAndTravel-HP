@@ -2,7 +2,7 @@
 package com.example.detaithuctap.Controller.DuLichController;
 
 import com.example.detaithuctap.Entity.tintuc.NewsComment;
-import com.example.detaithuctap.Entity.tintuc.news;
+import com.example.detaithuctap.Entity.tintuc.News;
 import com.example.detaithuctap.Service.tintucService.NewsCommentService;
 import com.example.detaithuctap.Service.tintucService.tintucService;
 import com.example.detaithuctap.auth.MyUserDetail;
@@ -38,8 +38,8 @@ public class NewsController {
 
         }
         ModelAndView modelAndView = new ModelAndView("blog");
-        List<news> list = tintucService.getAll();
-        List<news> noibat = new ArrayList<news>();
+        List<News> list = tintucService.getAll();
+        List<News> noibat = new ArrayList<News>();
         for (int i = 0; i < 4; i++){
            noibat.add(list.get(i));
         }
@@ -52,8 +52,8 @@ public class NewsController {
     public ModelAndView search(HttpSession session, @RequestParam("search") String search){
         search = "%" + search + "%";
         ModelAndView modelAndView = new ModelAndView("blog");
-        List<news> list = tintucService.getAll(search);
-        List<news> noibat = new ArrayList<news>();
+        List<News> list = tintucService.getAll(search);
+        List<News> noibat = new ArrayList<News>();
         for (int i = 0; i < 4; i++){
             noibat.add(tintucService.getAll().get(i));
         }
@@ -65,7 +65,7 @@ public class NewsController {
     @GetMapping("/blog-detail")
     public ModelAndView blogDetail(HttpSession session, @RequestParam("bid") int bid){
         ModelAndView modelAndView = new ModelAndView("blog_detail");
-        news tintuc = tintucService.getById(bid);
+        News tintuc = tintucService.getById(bid);
         modelAndView.addObject("tintuc", tintuc);
         String[] arrayImg = tintuc.getHinhAnhChiTiet().split(" ");
         List<String> listImg = new ArrayList<String>();
@@ -84,7 +84,7 @@ public class NewsController {
                           @RequestParam("image") String image, @RequestParam("loai_hinh") String loaiHinh,
                           @RequestParam("noi_dung") String noiDung, @RequestParam("chi_tiet_hinh_anh") String hinhAnhChiTiet){
         Timestamp timepost = new Timestamp(System.currentTimeMillis());
-        news news1 = new news(tieuDe, image, loaiHinh, timepost.toString(), noiDung, hinhAnhChiTiet);
+        News news1 = new News(tieuDe, image, loaiHinh, timepost.toString(), noiDung, hinhAnhChiTiet);
         tintucService.saveorupdate(news1);
     }
 

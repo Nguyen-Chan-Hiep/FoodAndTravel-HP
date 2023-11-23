@@ -2,7 +2,7 @@ package com.example.detaithuctap.Entity.DuLich;
 
 import java.util.List;
 
-public class detail_model {
+public class DetailModel {
     private int id;
     private String mota;
     private List<String> chi_tiet_hinh_anh;
@@ -12,7 +12,7 @@ public class detail_model {
     private String dichVu;
     private String gia;
 
-    public detail_model(int id, String mota, List<String> chi_tiet_hinh_anh, String giomocua, String giodongcua, int address, String dichVu, String gia) {
+    public DetailModel(int id, String mota, List<String> chi_tiet_hinh_anh, String giomocua, String giodongcua, int address, String dichVu, String gia) {
         this.id = id;
         this.mota = mota;
         this.chi_tiet_hinh_anh = chi_tiet_hinh_anh;
@@ -23,7 +23,7 @@ public class detail_model {
         this.gia = gia;
     }
 
-    public detail_model() {
+    public DetailModel() {
     }
 
     public int getId() {

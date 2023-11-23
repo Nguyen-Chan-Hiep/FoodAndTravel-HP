@@ -1,6 +1,6 @@
 package com.example.detaithuctap.Service.DuLichService.TravelTourServiceImpl;
 
-import com.example.detaithuctap.Entity.DuLich.travel_tour;
+import com.example.detaithuctap.Entity.DuLich.TravelTour;
 import com.example.detaithuctap.Repository.DuLichRepository.TravelTourReponse;
 import com.example.detaithuctap.Service.DuLichService.TravelTourService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,13 +15,13 @@ public class TravelTourServiceImpl implements TravelTourService {
     @Autowired
     private TravelTourReponse travelTourReponse;
     @Override
-    public List<travel_tour> getAll() {
+    public List<TravelTour> getAll() {
         return travelTourReponse.getAll();
     }
 
     @Override
-    public List<travel_tour> searchAll(String search, String date, int ngay) {
-        List<travel_tour> list = travelTourReponse.searchAll(search, date, ngay);
+    public List<TravelTour> searchAll(String search, String date, int ngay) {
+        List<TravelTour> list = travelTourReponse.searchAll(search, date, ngay);
         return list;
     }
 }

@@ -1,11 +1,11 @@
 package com.example.detaithuctap.Service.DuLichService;
 
-import com.example.detaithuctap.Entity.DuLich.hotel;
+import com.example.detaithuctap.Entity.DuLich.Hotel;
 
 import java.util.List;
 
 public interface HotelService {
-    List<hotel> getAll();
+    List<Hotel> getAll();
 
-    List<hotel> searchAll(String search);
+    List<Hotel> searchAll(String search);
 }

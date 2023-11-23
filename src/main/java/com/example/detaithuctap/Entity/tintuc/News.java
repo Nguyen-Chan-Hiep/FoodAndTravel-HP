@@ -6,7 +6,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "tin_tuc")
-public class news {
+public class News {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -32,10 +32,10 @@ public class news {
         this.image = image;
     }
 
-    public news() {
+    public News() {
     }
 
-    public news(int id, String tieuDe, String image, String loaiHinh, String timnepost, String noiDung, String hinhAnhChiTiet) {
+    public News(int id, String tieuDe, String image, String loaiHinh, String timnepost, String noiDung, String hinhAnhChiTiet) {
         this.id = id;
         this.tieuDe = tieuDe;
         this.image = image;
@@ -45,7 +45,7 @@ public class news {
         this.hinhAnhChiTiet = hinhAnhChiTiet;
     }
 
-    public news(String tieuDe, String image, String loaiHinh, String noiDung, String hinhAnhChiTiet) {
+    public News(String tieuDe, String image, String loaiHinh, String noiDung, String hinhAnhChiTiet) {
         this.tieuDe = tieuDe;
         this.image = image;
         this.loaiHinh = loaiHinh;
@@ -53,7 +53,7 @@ public class news {
         this.hinhAnhChiTiet = hinhAnhChiTiet;
     }
 
-    public news(String tieuDe, String image, String loaiHinh, String timnepost, String noiDung, String hinhAnhChiTiet) {
+    public News(String tieuDe, String image, String loaiHinh, String timnepost, String noiDung, String hinhAnhChiTiet) {
         this.tieuDe = tieuDe;
         this.image = image;
         this.loaiHinh = loaiHinh;

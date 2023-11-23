@@ -5,7 +5,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "liked_diadiem")
-public class liked_address {
+public class LikedAddress {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -15,16 +15,16 @@ public class liked_address {
     @Column(name = "id_dia_diem")
     private int idAddress;
 
-    public liked_address() {
+    public LikedAddress() {
     }
 
-    public liked_address(int id, int idUser, int idAddress) {
+    public LikedAddress(int id, int idUser, int idAddress) {
         this.id = id;
         this.idUser = idUser;
         this.idAddress = idAddress;
     }
 
-    public liked_address(int idUser, int idAddress) {
+    public LikedAddress(int idUser, int idAddress) {
         this.idUser = idUser;
         this.idAddress = idAddress;
     }

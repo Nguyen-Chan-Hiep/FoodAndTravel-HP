@@ -7,7 +7,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "commentdiadiemdulich")
-public class commentaAddress {
+public class CommentAddress {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -33,7 +33,7 @@ public class commentaAddress {
     private int idAddress;
 
 
-    public commentaAddress(String noidung, String timePost, int idUser, int idAddress, String userName) {
+    public CommentAddress(String noidung, String timePost, int idUser, int idAddress, String userName) {
         this.noidung = noidung;
         this.timePost = timePost;
         this.idUser = idUser;
@@ -41,10 +41,10 @@ public class commentaAddress {
         this.userName = userName;
     }
 
-    public commentaAddress() {
+    public CommentAddress() {
     }
 
-    public commentaAddress(int id, String noidung, String timePost, int idUser, int idAddress, String userName) {
+    public CommentAddress(int id, String noidung, String timePost, int idUser, int idAddress, String userName) {
         this.id = id;
         this.noidung = noidung;
         this.timePost = timePost;

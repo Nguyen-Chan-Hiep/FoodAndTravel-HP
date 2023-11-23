@@ -1,38 +1,36 @@
-package com.example.detaithuctap.Service.DuLichService.commentServiceImpl;
+package com.example.detaithuctap.Service.DuLichService.CommentServiceImpl;
 
-import com.example.detaithuctap.Entity.DuLich.commentaAddress;
-import com.example.detaithuctap.Entity.User.NguoiDung;
+import com.example.detaithuctap.Entity.DuLich.CommentAddress;
 import com.example.detaithuctap.Repository.DuLichRepository.CommentReponsImpl;
 import com.example.detaithuctap.Repository.NguoiDung.NguoiDungRepository;
-import com.example.detaithuctap.Service.DuLichService.commentService;
+import com.example.detaithuctap.Service.DuLichService.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.util.ArrayList;
 import java.util.List;
 @Service
 @Transactional
-public class commentServiceImpl implements commentService {
+public class CommentServiceImpl implements CommentService {
 
     @Autowired
     private NguoiDungRepository nguoiDungRepository;
     @Autowired
     private CommentReponsImpl reponsitory;
     @Override
-    public List<commentaAddress> loadByIdAddress(int idAddress) {
-        List<commentaAddress> commentaAddressList = reponsitory.findByIdAddress(idAddress);
+    public List<CommentAddress> loadByIdAddress(int idAddress) {
+        List<CommentAddress> commentaAddressList = reponsitory.findByIdAddress(idAddress);
 
         return commentaAddressList;
     }
 
     @Override
-    public void saveComment(commentaAddress commentaAddress) {
+    public void saveComment(CommentAddress commentaAddress) {
         reponsitory.saveOrUpdate(commentaAddress);
     }
 
     @Override
-    public void updateComment(commentaAddress commentaAddress) {
+    public void updateComment(CommentAddress commentaAddress) {
         reponsitory.saveOrUpdate(commentaAddress);
     }
 

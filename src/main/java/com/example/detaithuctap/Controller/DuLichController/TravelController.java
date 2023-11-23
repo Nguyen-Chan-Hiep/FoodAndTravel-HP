@@ -32,21 +32,21 @@ public class TravelController {
     @Autowired
     private TravelTourService travelTourService;
     @Autowired
-    private address_detailService addressDetailService;
+    private Address_detailService addressDetailService;
     @Autowired
-    private loaiHinhService loaiHinhService;
+    private TravelCategoryService loaiHinhService;
     @Autowired
-    private diaDiemService addressService;
+    private AddressService addressService;
 
     @Autowired
-    private commentService commentService;
+    private CommentService commentService;
 
     @GetMapping("/travel")
     public ModelAndView travelHome(HttpSession session){
         checkSession(session);
         ModelAndView modelAndView = new ModelAndView("travel");
-        List<address> list = addressService.getAll();
-        List<address> listAdd = new ArrayList<address>();
+        List<Address> list = addressService.getAll();
+        List<Address> listAdd = new ArrayList<Address>();
         for (int i = 0; i < 8; i++){
             listAdd.add(list.get(i));
         }
@@ -58,7 +58,7 @@ public class TravelController {
     public ModelAndView travelTour(HttpSession session){
         checkSession(session);
         ModelAndView modelAndView = new ModelAndView("travel-tour");
-        List<travel_tour> tours = travelTourService.getAll();
+        List<TravelTour> tours = travelTourService.getAll();
         modelAndView.addObject("tours", tours);
         return modelAndView;
     }
@@ -67,9 +67,9 @@ public class TravelController {
     public ModelAndView travelDestination(HttpSession session){
         checkSession(session);
         ModelAndView modelAndView = new ModelAndView("travel-destination");
-        List<loaiHinh> listLH = loaiHinhService.finfAll();
+        List<TravelCategory> listLH = loaiHinhService.finfAll();
         modelAndView.addObject("listLH", listLH);
-        List<address> listAdd = addressService.getAll();
+        List<Address> listAdd = addressService.getAll();
         modelAndView.addObject("listAdd", listAdd);
         return modelAndView;
     }
@@ -78,9 +78,9 @@ public class TravelController {
     public ModelAndView travelDestinationByLh(HttpSession session, @RequestParam("id_lh") int id_lh){
         checkSession(session);
         ModelAndView modelAndView = new ModelAndView("travel-destination");
-        List<loaiHinh> listLH = loaiHinhService.finfAll();
+        List<TravelCategory> listLH = loaiHinhService.finfAll();
         modelAndView.addObject("listLH", listLH);
-        List<address> listAdd = addressService.findByLHId(id_lh);
+        List<Address> listAdd = addressService.findByLHId(id_lh);
         modelAndView.addObject("listAdd", listAdd);
         System.out.println(listAdd);
         return modelAndView;
@@ -89,7 +89,7 @@ public class TravelController {
     public ModelAndView travelHotel(HttpSession session){
         checkSession(session);
         ModelAndView modelAndView = new ModelAndView("travel-hotel");
-        List<hotel> hotels = hotelService.getAll();
+        List<Hotel> hotels = hotelService.getAll();
         modelAndView.addObject("hotels", hotels);
         return modelAndView;
     }
@@ -98,22 +98,22 @@ public class TravelController {
     public ModelAndView travelDestinationDetail(HttpSession session, @RequestParam("id") int id){
         checkSession(session);
         ModelAndView modelAndView = new ModelAndView("travel-destination-detail");
-        List<travel_tour> travelTours = travelTourService.getAll();
+        List<TravelTour> travelTours = travelTourService.getAll();
         modelAndView.addObject("tours", travelTours);
-        address address1 = addressService.getById(id);
+        Address address1 = addressService.getById(id);
         modelAndView.addObject("address", address1);
-        address_detail addressDetail = addressDetailService.findByIdAddress(id);
+        AddressDetail addressDetail = addressDetailService.findByIdAddress(id);
         List<String> chi_tiet_hinh_anh = new ArrayList<String>();
         String[] hinh_anh = addressDetail.getChi_tiet_hinh_anh().split(" ");
         for (String w : hinh_anh) {
             chi_tiet_hinh_anh.add(w);
         }
-        detail_model detailModel = new detail_model(addressDetail.getId(), addressDetail.getMota(),
+        DetailModel detailModel = new DetailModel(addressDetail.getId(), addressDetail.getMota(),
                 chi_tiet_hinh_anh, addressDetail.getGiomocua(), addressDetail.getGiodongcua(), addressDetail.getAddress(), addressDetail.getDichVu(), addressDetail.getGia());
         modelAndView.addObject("detail", detailModel);
-        List<address> listAddLQ = addressService.findByLHId(address1.getLoaiHinh());
+        List<Address> listAddLQ = addressService.findByLHId(address1.getLoaiHinh());
         modelAndView.addObject("listAdd", listAddLQ);
-        List<commentaAddress> commentaAddressList = commentService.loadByIdAddress(id);
+        List<CommentAddress> commentaAddressList = commentService.loadByIdAddress(id);
         modelAndView.addObject("listComment", commentaAddressList);
         int slCmt = commentaAddressList.size();
         modelAndView.addObject("slCmt", slCmt);
@@ -133,7 +133,7 @@ public class TravelController {
     , @RequestParam("date") String date, @RequestParam("ngay") int ngay){
         ModelAndView modelAndView = new ModelAndView("travel-tour");
         search = "%" + search + "%";
-        List<travel_tour> tours = travelTourService.searchAll(search, date, ngay);
+        List<TravelTour> tours = travelTourService.searchAll(search, date, ngay);
         modelAndView.addObject("tours", tours);
         return modelAndView;
     }
@@ -141,7 +141,7 @@ public class TravelController {
     @GetMapping("/find-hotel")
     public ModelAndView searchHotel(HttpSession session, @RequestParam("search") String search){
         ModelAndView modelAndView = new ModelAndView("travel-hotel");
-        List<hotel> hotels = hotelService.searchAll(search);
+        List<Hotel> hotels = hotelService.searchAll(search);
         modelAndView.addObject("hotels", hotels);
         return modelAndView;
     }
@@ -151,7 +151,7 @@ public class TravelController {
         try{
             Timestamp timepost = new Timestamp(System.currentTimeMillis());
             MyUserDetail myUserDetail = (MyUserDetail) (SecurityContextHolder.getContext()).getAuthentication().getPrincipal();
-            commentaAddress comment = new commentaAddress(content, timepost.toString(), myUserDetail.getId(), Integer.parseInt(id), myUserDetail.getUsername());
+            CommentAddress comment = new CommentAddress(content, timepost.toString(), myUserDetail.getId(), Integer.parseInt(id), myUserDetail.getUsername());
             commentService.saveComment(comment);
             String path = "redirect:/travel-destination-detail?id=" + id;
             return path;
@@ -165,9 +165,9 @@ public class TravelController {
     public ModelAndView search(HttpSession session, @RequestParam("catagory") String category, @RequestParam("search") String search){
         if (Integer.parseInt(category) == 1){
             ModelAndView modelAndView = new ModelAndView("travel-destination");
-            List<loaiHinh> listLH = loaiHinhService.finfAll();
+            List<TravelCategory> listLH = loaiHinhService.finfAll();
             modelAndView.addObject("listLH", listLH);
-            List<address> listAdd = addressService.searchAddress(search);
+            List<Address> listAdd = addressService.searchAddress(search);
             modelAndView.addObject("listAdd", listAdd);
             return modelAndView;
         } else {

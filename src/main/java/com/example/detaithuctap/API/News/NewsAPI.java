@@ -1,6 +1,6 @@
 package com.example.detaithuctap.API.News;
 
-import com.example.detaithuctap.Entity.tintuc.news;
+import com.example.detaithuctap.Entity.tintuc.News;
 import com.example.detaithuctap.Service.tintucService.tintucService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,9 +17,9 @@ public class NewsAPI {
     @Autowired
     private tintucService service;
     @PostMapping("/save")
-    public String save(@RequestBody news tintuc){
+    public String save(@RequestBody News tintuc){
         Timestamp timepost = new Timestamp(System.currentTimeMillis());
-        news news1 = new news(tintuc.getTieuDe(), tintuc.getImage(), tintuc.getLoaiHinh()
+        News news1 = new News(tintuc.getTieuDe(), tintuc.getImage(), tintuc.getLoaiHinh()
         , timepost.toString(), tintuc.getNoiDung(), tintuc.getHinhAnhChiTiet());
         try{
             service.saveorupdate(news1);

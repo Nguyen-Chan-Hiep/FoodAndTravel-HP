@@ -1,9 +1,9 @@
 
-package com.example.detaithuctap.Service.DuLichService.diaDiemServiceImpl;
+package com.example.detaithuctap.Service.DuLichService.AddressServiceImpl;
 
-import com.example.detaithuctap.Entity.DuLich.address;
+import com.example.detaithuctap.Entity.DuLich.Address;
 import com.example.detaithuctap.Repository.DuLichRepository.AddressReponsImpl;
-import com.example.detaithuctap.Service.DuLichService.diaDiemService;
+import com.example.detaithuctap.Service.DuLichService.AddressService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,17 +11,17 @@ import javax.transaction.Transactional;
 import java.util.List;
 @Service
 @Transactional
-public class diaDiemServiceImpl implements diaDiemService {
+public class AddressServiceImpl implements AddressService {
     @Autowired
     private AddressReponsImpl respon;
 
     @Override
-    public List<address> getAll() {
+    public List<Address> getAll() {
         return respon.getAll();
     }
 
     @Override
-    public address getById(int id) {
+    public Address getById(int id) {
         try{
             return respon.getById(id);
         }
@@ -31,22 +31,22 @@ public class diaDiemServiceImpl implements diaDiemService {
     }
 
     @Override
-    public List<address> getByLHName(String name) {
+    public List<Address> getByLHName(String name) {
         return respon.getListAddress(name);
     }
 
     @Override
-    public void saveorupdate(address dd) {
+    public void saveorupdate(Address dd) {
         respon.saveOrUpdate(dd);
     }
 
     @Override
-    public void delAddress(address address1) {
+    public void delAddress(Address address1) {
         respon.delObject(address1);
     }
 
     @Override
-    public address getOne(String tenloaihinh, String tenDiaDiem, String diachi, String trangthai, String hinhanh) {
+    public Address getOne(String tenloaihinh, String tenDiaDiem, String diachi, String trangthai, String hinhanh) {
         return respon.getOne(tenloaihinh, tenDiaDiem, diachi, trangthai, hinhanh);
     }
 
@@ -56,16 +56,16 @@ public class diaDiemServiceImpl implements diaDiemService {
     }
 
     @Override
-    public List<address> searchAddress(String search) {
+    public List<Address> searchAddress(String search) {
         search = search.substring(0, search.length()-1);
         search = "%" + search +"%";
         System.out.print(search);
-        List<address> list = respon.search(search);
+        List<Address> list = respon.search(search);
         return list;
     }
 
     @Override
-    public List<address> findByLHId(int lhId) {
+    public List<Address> findByLHId(int lhId) {
         return respon.getByLHId(lhId);
     }
 }

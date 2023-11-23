@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="address_travel")
-public class address {
+public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
@@ -23,7 +23,7 @@ public class address {
     @Column(name = "sl_like")
     public int slLike;
 
-    public address(int id, int loaiHinh, String tenDiaDiem, String diaChi, String trangThai, String hinhAnh, int slLike) {
+    public Address(int id, int loaiHinh, String tenDiaDiem, String diaChi, String trangThai, String hinhAnh, int slLike) {
         this.id = id;
         this.loaiHinh = loaiHinh;
         this.tenDiaDiem = tenDiaDiem;
@@ -33,7 +33,7 @@ public class address {
         this.slLike = slLike;
     }
 
-    public address(int loaiHinh, String tenDiaDiem, String diaChi, String trangThai, String hinhAnh, int slLike) {
+    public Address(int loaiHinh, String tenDiaDiem, String diaChi, String trangThai, String hinhAnh, int slLike) {
         this.loaiHinh = loaiHinh;
         this.tenDiaDiem = tenDiaDiem;
         this.diaChi = diaChi;
@@ -42,7 +42,7 @@ public class address {
         this.slLike = slLike;
     }
 
-    public address() {
+    public Address() {
     }
 
     public int getId() {

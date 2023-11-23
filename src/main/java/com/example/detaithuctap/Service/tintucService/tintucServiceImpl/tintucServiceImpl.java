@@ -1,7 +1,7 @@
 
 package com.example.detaithuctap.Service.tintucService.tintucServiceImpl;
 
-import com.example.detaithuctap.Entity.tintuc.news;
+import com.example.detaithuctap.Entity.tintuc.News;
 import com.example.detaithuctap.Repository.tintucReponsitory.TinTucReponsImpl;
 import com.example.detaithuctap.Service.tintucService.tintucService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,17 +15,17 @@ public class tintucServiceImpl implements tintucService {
     @Autowired
     private TinTucReponsImpl reponsitory;
     @Override
-    public void saveorupdate(news news) {
+    public void saveorupdate(News news) {
         reponsitory.saveOrUpdate(news);
     }
 
     @Override
-    public List<news> getAll(String search) {
+    public List<News> getAll(String search) {
         return reponsitory.getAll(search);
     }
 
     @Override
-    public List<news> getAll() {
+    public List<News> getAll() {
         return reponsitory.getAll();    }
 
     @Override
@@ -34,7 +34,7 @@ public class tintucServiceImpl implements tintucService {
     }
 
     @Override
-    public news getById(int id) {
+    public News getById(int id) {
         return reponsitory.getById(id);
     }
 }

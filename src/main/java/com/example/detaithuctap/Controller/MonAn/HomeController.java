@@ -1,18 +1,18 @@
 package com.example.detaithuctap.Controller.MonAn;
 
 import com.example.detaithuctap.Entity.BaiViet.BaiViet;
-import com.example.detaithuctap.Entity.DuLich.address;
+import com.example.detaithuctap.Entity.DuLich.Address;
 import com.example.detaithuctap.Entity.MonAn.DiaDiemAnUong;
 import com.example.detaithuctap.Entity.MonAn.MonAn;
 import com.example.detaithuctap.Entity.MonAn.NhanXetMonAn;
 import com.example.detaithuctap.Entity.MonAn.monan_diadiemanuong;
 import com.example.detaithuctap.Entity.User.NguoiDung;
-import com.example.detaithuctap.Entity.tintuc.news;
+import com.example.detaithuctap.Entity.tintuc.News;
 //import com.example.detaithuctap.Entity.tintuc.news;
 import com.example.detaithuctap.Entity.MonAn.Loai_hinh_am_thuc;
 import com.example.detaithuctap.Service.BaiViet.BaiVietService;
 import com.example.detaithuctap.Service.Comment.NhanXetMonAnService;
-import com.example.detaithuctap.Service.DuLichService.diaDiemService;
+import com.example.detaithuctap.Service.DuLichService.AddressService;
 import com.example.detaithuctap.Service.MonAn.DiaDiemAnUongService;
 import com.example.detaithuctap.Service.MonAn.Loai_hinh_am_thucService;
 import com.example.detaithuctap.Service.MonAn.MonAnService;
@@ -20,7 +20,6 @@ import com.example.detaithuctap.Service.NguoiDung.NguoiDungService;
 import com.example.detaithuctap.Service.tintucService.tintucService;
 import com.example.detaithuctap.auth.MyUserDetail;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -39,14 +38,13 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Iterator;
 import java.util.List;
 
 @Controller
 public class HomeController {
 
 	@Autowired
-	private diaDiemService diaDiemService;
+	private AddressService diaDiemService;
 	
 	@Autowired
 	private NhanXetMonAnService nhanXetMonAnService;
@@ -73,14 +71,14 @@ public class HomeController {
     public ModelAndView home()
     {
         ModelAndView modelAndView = new ModelAndView("home");
-		List<news> list = tintucService.getAll();
-		List<news> noibat = new ArrayList<news>();
+		List<News> list = tintucService.getAll();
+		List<News> noibat = new ArrayList<News>();
 		for (int i = 0; i < 3; i++){
 			noibat.add(list.get(i));
 		}
 		modelAndView.addObject("tintuc", noibat);
-		List<address> addresses = diaDiemService.findByLHId(4);
-		List<address> addresses1 = new ArrayList<address>();
+		List<Address> addresses = diaDiemService.findByLHId(4);
+		List<Address> addresses1 = new ArrayList<Address>();
 		for (int i = 0; i < 3; i++){
 			addresses1.add(addresses.get(i));
 		}
@@ -114,7 +112,7 @@ public class HomeController {
     	MonAn monAn = monAnService.getById(id);
     	modelAndView.addObject("monan", monAn);
 		String search = "%Ẩm thực%";
-		List<news> noibat = new ArrayList<news>();
+		List<News> noibat = new ArrayList<News>();
 		for (int i = 0; i < tintucService.getAll(search).toArray().length; i++){
 			noibat.add(tintucService.getAll(search).get(i));
 		}
